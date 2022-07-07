@@ -1,3 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-Console.WriteLine("Hello, World!!");
+﻿namespace ParsServ
+{
+    class Program
+    {
+        private static void Main()
+        {
+            Console.WriteLine();
+        }
+    }
+}
