@@ -2,5 +2,5 @@
 
 using ParserServ;
 
-var moex = new MOEX();
-moex.downloadXML("TQBR", "MAGN");
+var moex = new Moex();
+moex.DownloadXml("TQBR", "MAGN");

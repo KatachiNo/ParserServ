@@ -1,22 +1,21 @@
-﻿using System.Xml;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
 
 namespace ParserServ;
 
-public class MOEX
+public class Moex
 {
-    public void downloadXML(string board, string secid)
+    public void DownloadXml(string board, string secid)
     {
         var xml = XDocument.Load(
             $@"https://iss.moex.com/iss/engines/stock/markets/shares/boards/{board}/securities/{secid}/.xml?iss.meta=off");
 
-        var last_price = xml.Elements("document").Elements("data")
+        var lastPrice = xml.Elements("document").Elements("data")
             .FirstOrDefault(x => x.Attribute("id")?.Value == "marketdata")!
             .Element("rows")
             ?.Element("row")!.Attribute("LAST");
 
-        var time_moex = xml.Elements("document").Elements("data")
+        var timeMoex = xml.Elements("document").Elements("data")
             .FirstOrDefault(x => x.Attribute("id")?.Value == "marketdata")!
             .Element("rows")
             ?.Element("row")!.Attribute("TIME");
