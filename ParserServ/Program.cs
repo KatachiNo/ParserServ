@@ -1,3 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using ParserServ.InternetParser;
 
-Console.WriteLine("Hello, World!!!");
+MoexParser moexParser = new MoexParser();
+moexParser.Load();
