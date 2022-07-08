@@ -19,7 +19,7 @@ namespace ParserServ.SqlAccess
         public List<string> GetMoexCompanies()
         {
             string sql="Select CompanyName From MoexCompany";
-            return _dataAccess.LoadData<string, dynamic>(sql, new {},_connectionString)
+            return _dataAccess.LoadData<string, dynamic>(sql, new { }, _connectionString);
         }
     }
 }
