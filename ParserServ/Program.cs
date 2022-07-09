@@ -3,4 +3,8 @@
 using ParserServ;
 
 var moex = new Moex();
-moex.DownloadXml("TQBR", "MAGN");
+
+moex.DownloadXml("TQBR", "AMEZ");
+moex.DownloadXml("TQBR", "IGST");
+moex.DownloadXml("TQBR", "IGSTP");
+moex.DownloadXml("TQBR", "KMEZ");

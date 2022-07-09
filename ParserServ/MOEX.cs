@@ -20,6 +20,8 @@ public class Moex
             .Element("rows")
             ?.Element("row")!.Attribute("TIME");
 
-        Console.ReadKey();
+
+        Console.WriteLine(
+            $"Акция {secid} последняя цена {lastPrice.Value} время парсинга {DateTime.Now} Время по MOEX {timeMoex}");
     }
 }
