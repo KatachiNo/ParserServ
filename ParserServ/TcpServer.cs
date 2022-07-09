@@ -9,7 +9,7 @@ public class TcpServer
     private TcpListener server;
 
 
-    private TcpServer(string ip, int port)
+    public TcpServer(string ip, int port)
     {
         var localAddress = IPAddress.Parse(ip);
 
