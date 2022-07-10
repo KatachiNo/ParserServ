@@ -5,7 +5,7 @@ namespace ParserServ;
 
 public class Moex
 {
-    public void DownloadXml(string board, string secid)
+    public (string, string, string, string) DownloadXml(string board, string secid)
     {
         var xml = XDocument.Load(
             $@"https://iss.moex.com/iss/engines/stock/markets/shares/boards/{board}/securities/{secid}/.xml?iss.meta=off");
@@ -23,5 +23,7 @@ public class Moex
 
         Console.WriteLine(
             $"Акция {secid} последняя цена {lastPrice.Value} время парсинга {DateTime.Now} Время по MOEX {timeMoex}");
+
+        return (secid, lastPrice.Value, DateTime.Now.ToString(), timeMoex.ToString());
     }
 }
