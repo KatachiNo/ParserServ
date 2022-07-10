@@ -6,16 +6,18 @@ public class McenaParser
 {
     public McenaParser()
     {
-        string u = "https://www.mcena.ru/metalloprokat/krug/krug-gost-2590_ceny";
+        string u = "https://www.mcena.ru/metalloprokat/list/goryachekatanyj_ceny";
         Pars(u);
-
     }
     public void Pars(string url)
     {
         IWebDriver driver = new ChromeDriver();
         driver.Navigate().GoToUrl(url);
+
+        //тут проблема с кнопкой
+        /*
         //var b = driver.FindElement(By.CssSelector("body > main > div > div.main__content > div.prices__block.prices__no-bottom > div.price-table__button"));
-        while (1 != 0)
+        while (true)
         {
             try
             {
@@ -26,12 +28,23 @@ public class McenaParser
                 break;
             }
         }
-        /*
-        var f = driver.FindElements(By.CssSelector("body > main > div > div.main__content > div.prices__block.prices__no-bottom > div.prices__wrapper"));
-        foreach (var item in f)
-        {
-            Console.WriteLine(item.Text + "!");
-        }
         */
+
+        List<int> prices = new List<int>();
+        var f = driver.FindElement(By.ClassName("prices__body"));
+        var v = f.FindElements(By.TagName("td"));
+        foreach (var item in v)
+        {
+            string s = item.Text.Replace(" ", "");
+            int res;
+            if (Int32.TryParse(s, out res))
+                prices.Add(res);      
+        }
+
+        int sum = 0;
+        foreach (var p in prices)
+            sum = sum + p;
+        double r = sum / prices.Count;
+        Console.WriteLine(r);
     }
 }
