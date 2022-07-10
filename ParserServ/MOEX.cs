@@ -11,12 +11,51 @@ public class Moex
             new SqlConnection(
                 @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
         connection.Open();
-        var command = new SqlCommand($@"INSERT INTO Moex (SecID,Board) VALUES ('{secID}','{board}')",connection).ExecuteNonQuery();
+        var command = new SqlCommand($@"INSERT INTO Moex (SecID,Board) VALUES ('{secID}','{board}')", connection)
+            .ExecuteNonQuery();
         connection.Close();
     }
 
 
-    public (string, string, string, string) TakeData(string board, string secid)
+    public void Start(int ms)
+    {
+        while (true)
+        {
+            var connectionReading =
+                new SqlConnection(
+                    @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
+            var connectionWriting =
+                new SqlConnection(
+                    @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
+
+            connectionReading.Open();
+            connectionWriting.Open();
+
+            var reader = new SqlCommand("SELECT * FROM Moex", connectionReading).ExecuteReader();
+
+            while (reader.Read())
+            {
+                var a = TakeData(reader.GetValue(1).ToString().Trim(), reader.GetValue(2).ToString().Trim());
+
+
+                var command =
+                    new SqlCommand(
+                            $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
+                      VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
+                            connectionWriting)
+                        .ExecuteNonQuery();
+            }
+
+            connectionReading.Close();
+            connectionWriting.Close();
+
+            Console.WriteLine("Sleeping. . .");
+            Thread.Sleep(ms); // 1 min = 60000 ms
+        }
+    }
+
+
+    private (string, string, string, string) TakeData(string? secid, string? board)
     {
         var xml = XDocument.Load(
             $@"https://iss.moex.com/iss/engines/stock/markets/shares/boards/{board}/securities/{secid}/.xml?iss.meta=off");
