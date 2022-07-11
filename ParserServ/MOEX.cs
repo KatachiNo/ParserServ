@@ -18,7 +18,7 @@ public class Moex
     }
 
 
-    public (int, string) Start(int ms)
+    public void Start(int ms)
     {
         while (true)
         {
@@ -53,7 +53,6 @@ public class Moex
                         {
                             var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
                             Console.WriteLine(msg);
-                            return (-1, msg);
                         }
                     }
                 }
