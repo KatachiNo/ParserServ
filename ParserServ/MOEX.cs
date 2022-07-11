@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Globalization;
 using System.Xml.Linq;
 
 namespace ParserServ;
@@ -21,17 +22,6 @@ public class Moex
     {
         while (true)
         {
-            // var connectionReading =
-            //     new SqlConnection(
-            //         @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
-            // var connectionWriting =
-            //     new SqlConnection(
-            //         @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
-            //
-            // connectionReading.Open();
-            // connectionWriting.Open();
-
-
             using (var connectionReading =
                    new SqlConnection(
                        @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
@@ -60,9 +50,6 @@ public class Moex
             }
 
 
-            // connectionReading.Close();
-            // connectionWriting.Close();
-
             Console.WriteLine("Sleeping. . .");
             Thread.Sleep(ms); // 1 min = 60000 ms
         }
@@ -71,6 +58,8 @@ public class Moex
 
     private (string, string, string, string) TakeData(string? secid, string? board)
     {
+        string fullData;
+
         var xml = XDocument.Load(
             $@"https://iss.moex.com/iss/engines/stock/markets/shares/boards/{board}/securities/{secid}/.xml?iss.meta=off");
 
@@ -90,7 +79,19 @@ public class Moex
             ?.Element("row")!.Attribute("PREVDATE").Value.ToString();
 
         var t = DateTime.Parse(timeMoex_temp);
-        var fullData = DateTime.Parse(prevdate).AddDays(1).Add(new TimeSpan(t.Hour, t.Minute, t.Second)).ToString();
+
+        var fullData_temp = DateTime.Parse(prevdate).Add(new TimeSpan(t.Hour, t.Minute, t.Second));
+        var t2 = fullData_temp.DayOfWeek.ToString();
+
+        if (t2 != "Friday")
+        {
+            fullData = fullData_temp.AddDays(1).ToString();
+        }
+        else
+        {
+            fullData = fullData_temp.ToString();
+        }
+        
 
         Console.WriteLine(
             $"Акция {secid} последняя цена {lastPrice.Value} время парсинга {DateTime.Now} Время по MOEX {fullData}");
