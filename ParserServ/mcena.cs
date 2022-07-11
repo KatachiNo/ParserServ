@@ -6,45 +6,33 @@ public class McenaParser
 {
     public McenaParser()
     {
-        string u = "https://www.mcena.ru/metalloprokat/list/goryachekatanyj_ceny";
-        Pars(u);
+        List<string[]> urls = new List<string[]>();
+        urls.Add(new string[] { "1", "https://www.mcena.ru/metalloprokat/armatura" });
+        urls.Add(new string[] { "2", "https://www.mcena.ru/metalloprokat/katanka" });
+        urls.Add(new string[] { "1", "https://www.mcena.ru/metalloprokat/kvadrat" });
+        urls.Add(new string[] { "1", "https://www.mcena.ru/metalloprokat/krug" });
+        urls.Add(new string[] { "1", "https://www.mcena.ru/metalloprokat/list" });
+        urls.Add(new string[] { "2", "https://www.mcena.ru/metalloprokat/list" });
+        urls.Add(new string[] { "3", "https://www.mcena.ru/metalloprokat/list" });
+        urls.Add(new string[] { "4", "https://www.mcena.ru/metalloprokat/list" });
+        urls.Add(new string[] { "5", "https://www.mcena.ru/metalloprokat/list" });
+        int id = 1;
+        foreach (string[] url in urls)
+        {
+            Pars(url[1], Int32.Parse(url[0]), id);
+            id++;
+        }
     }
-    public void Pars(string url)
+    public void Pars(string url, int line, int id)
     {
+        ChromeOptions option = new ChromeOptions();
+        option.AddArgument("headless");
         IWebDriver driver = new ChromeDriver();
         driver.Navigate().GoToUrl(url);
-
-        //тут проблема с кнопкой
-        /*
-        //var b = driver.FindElement(By.CssSelector("body > main > div > div.main__content > div.prices__block.prices__no-bottom > div.price-table__button"));
-        while (true)
-        {
-            try
-            {
-                driver.FindElement(By.CssSelector("body > main > div > div.main__content > div.prices__block.prices__no-bottom > div.price-table__button")).Click();
-            }
-            catch
-            {
-                break;
-            }
-        }
-        */
-
-        List<int> prices = new List<int>();
-        var f = driver.FindElement(By.ClassName("prices__body"));
-        var v = f.FindElements(By.TagName("td"));
-        foreach (var item in v)
-        {
-            string s = item.Text.Replace(" ", "");
-            int res;
-            if (Int32.TryParse(s, out res))
-                prices.Add(res);      
-        }
-
-        int sum = 0;
-        foreach (var p in prices)
-            sum = sum + p;
-        double r = sum / prices.Count;
-        Console.WriteLine(r);
+        string q = "body > main > div.main__content > article:nth-child(3) > div > div > div > div > table > tbody > tr:nth-child(" + line.ToString() + ") > td:nth-child(2)";
+        var v = driver.FindElement(By.CssSelector(q));
+        string s = v.Text.Replace(" ", "");
+        int res = Int32.Parse(s);
+        Console.WriteLine(id + " " + res);        
     }
 }
