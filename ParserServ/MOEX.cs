@@ -83,13 +83,13 @@ public class Moex
         var fullData_temp = DateTime.Parse(prevdate).Add(new TimeSpan(t.Hour, t.Minute, t.Second));
         var t2 = fullData_temp.DayOfWeek.ToString();
 
-        if (t2 != "Friday")
+        if (t2 == "Friday")
         {
-            fullData = fullData_temp.AddDays(1).ToString();
+            fullData = fullData_temp.AddDays(3).ToString();
         }
         else
         {
-            fullData = fullData_temp.ToString();
+            fullData = fullData_temp.AddDays(1).ToString();
         }
         
 
