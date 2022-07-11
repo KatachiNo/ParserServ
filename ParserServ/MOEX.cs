@@ -18,7 +18,7 @@ public class Moex
     }
 
 
-    public void Start(int ms)
+    public (int, string) Start(int ms)
     {
         while (true)
         {
@@ -36,15 +36,25 @@ public class Moex
 
                     while (reader.Read())
                     {
-                        var a = TakeData(reader.GetValue(1).ToString().Trim(), reader.GetValue(2).ToString().Trim());
+                        var value1 = reader.GetValue(1).ToString().Trim();
+                        var value2 = reader.GetValue(2).ToString().Trim();
+                        try
+                        {
+                            var a = TakeData(value1, value2);
 
-
-                        var command =
-                            new SqlCommand(
-                                    $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
-                      VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
-                                    connectionWriting)
-                                .ExecuteNonQuery();
+                            var command =
+                                new SqlCommand(
+                                        $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
+                            VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
+                                        connectionWriting)
+                                    .ExecuteNonQuery();
+                        }
+                        catch
+                        {
+                            var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
+                            Console.WriteLine(msg);
+                            return (-1, msg);
+                        }
                     }
                 }
             }
@@ -91,7 +101,7 @@ public class Moex
         {
             fullData = fullData_temp.AddDays(1).ToString();
         }
-        
+
 
         Console.WriteLine(
             $"Акция {secid} последняя цена {lastPrice.Value} время парсинга {DateTime.Now} Время по MOEX {fullData}");
