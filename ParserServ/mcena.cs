@@ -38,5 +38,7 @@ public class McenaParser
         string s = v.Text.Replace(" ", "");
         int res = Int32.Parse(s);
         sql.AddMcenaData(id, res);
+        //string query = "Insert into";
+        //Console.WriteLine(id + " " + res + " " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")); 
     }
 }
