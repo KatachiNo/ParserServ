@@ -1,5 +1,4 @@
-﻿using ParserServ;
+using ParserServ.InternetParser;
 
-var moex = new Moex();
-
-moex.Start(60000);
+MoexParser moexParser = new MoexParser();
+moexParser.Load();
