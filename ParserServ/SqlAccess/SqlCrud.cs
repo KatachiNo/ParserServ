@@ -24,7 +24,7 @@ namespace ParserServ.SqlAccess
 
         public void AddInTranslom(string id, string MetallType, string AreaType, string AreaName, string Price, string Date, string ParseDate)
         {
-            string sql = "INSERT INTO Translom (id, MetallType, AreaType, AreaName, Price, Date, ParseDate) VALUES (@id, @MetallType, @AreaType,@AreaName, @Price, @Date, @ParseDate)";
+            string sql = "update Translom set Price=@Price where MetallType=@MetallType And AreaName=@AreaName And AreaType=@AreaType IF @@ROWCOUNT=0   insert into Translom values(@id,@MetallType,@AreaType,@AreaName,@Price,@Date,@ParseDate);";
             _dataAccess.SaveData(sql, new { id, MetallType, AreaType, AreaName, Price, Date, ParseDate}, _connectionString);
         }
     }
