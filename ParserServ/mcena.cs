@@ -1,11 +1,14 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using ParserServ.SqlAccess;
 
 public class McenaParser
-{
+{ 
+    static SqlCrud sql;
     public McenaParser()
     {
+        sql = new SqlCrud();
         List<string[]> urls = new List<string[]>();
         urls.Add(new string[] { "1", "https://www.mcena.ru/metalloprokat/armatura" });
         urls.Add(new string[] { "2", "https://www.mcena.ru/metalloprokat/katanka" });
@@ -17,7 +20,7 @@ public class McenaParser
         urls.Add(new string[] { "4", "https://www.mcena.ru/metalloprokat/list" });
         urls.Add(new string[] { "5", "https://www.mcena.ru/metalloprokat/list" });
         int id = 1;
-        List<Thread> stream = new List<Thread>();
+        //List<Thread> stream = new List<Thread>(); потом добавить многопоточность
         foreach (string[] u in urls)
         {
             Pars(u[1], Int32.Parse(u[0]), id);
@@ -34,6 +37,6 @@ public class McenaParser
         var v = driver.FindElement(By.CssSelector(q));
         string s = v.Text.Replace(" ", "");
         int res = Int32.Parse(s);
-        Console.WriteLine(id + " " + res);        
+        sql.AddMcenaData(id, res);      
     }
 }
