@@ -5,7 +5,7 @@ namespace ParserServ;
 
 public class TcpServer
 {
-    private TcpClient client;
+    public TcpClient client;
 
     public TcpServer(TcpClient tcpClient)
     {
