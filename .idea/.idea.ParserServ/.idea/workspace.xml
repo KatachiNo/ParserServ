@@ -4,13 +4,8 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Единение... дух бесплотный">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_13_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_13_02__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01__Changes_.xml" afterDir="false" />
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Made TCP great again">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7db79a8c1f7541f59ceeb5c06b4a2acbd580/cb/2ace77ca/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2d2b6050bcc963227b5743c6fc3f4295c9615ad69df6b54e53a3817fc3d793b/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -87,6 +83,7 @@
       <workItem from="1657429497918" duration="21021000" />
       <workItem from="1657529131015" duration="4309000" />
       <workItem from="1657606266987" duration="4826000" />
+      <workItem from="1657617961469" duration="1021000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
@@ -151,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657536271133</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Made TCP great again">
+      <created>1657618221771</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657618221771</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +174,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/mcena" />
+                        <option value="origin/Tcp_Server_Part" />
                       </list>
                     </value>
                   </entry>
@@ -193,6 +197,7 @@
     <MESSAGE value="garbage" />
     <MESSAGE value="Resolve little baga with data" />
     <MESSAGE value="Was resolved bug with data (again)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Was resolved bug with data (again)" />
+    <MESSAGE value="Made TCP great again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made TCP great again" />
   </component>
 </project>
