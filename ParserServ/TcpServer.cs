@@ -6,31 +6,55 @@ namespace ParserServ;
 
 public class TcpServer
 {
-    public TcpClient clientSocket;
+   
 
-    public void RunClient()
+
+    public TcpClient client;
+
+    public TcpServer(TcpClient tcpClient)
     {
-        var readerStream = new StreamReader(clientSocket.GetStream());
-        var writeStream = clientSocket.GetStream();
-        var returnData = readerStream.ReadLine();
-        var username = returnData;
-        Console.WriteLine($"Welcome {username} to the Server");
+        client = tcpClient;
+    }
 
-        while (true)
+    public void Process()
+    {
+        NetworkStream stream = null;
+        try
         {
-            returnData = readerStream.ReadLine();
-            if (returnData.IndexOf("Quit") > -1)
+            stream = client.GetStream();
+            byte[] data = new byte[64]; // буфер для получаемых данных
+            while (true)
             {
-                Console.WriteLine($"Bye bye {username}");
-                break;
+                // получаем сообщение
+                var builder = new StringBuilder();
+                var bytes = 0;
+                do
+                {
+                    bytes = stream.Read(data, 0, data.Length);
+                    builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                } while (stream.DataAvailable);
+
+                var message = builder.ToString();
+
+                Console.WriteLine(message);
+                // отправляем обратно сообщение в верхнем регистре
+                message = message.Substring(message.IndexOf(':') + 1).Trim().ToUpper();
+                data = Encoding.Unicode.GetBytes(message);
+                stream.Write(data, 0, data.Length);
             }
-
-            Console.WriteLine($"{username} : {returnData}");
-            returnData += "\r\n";
-            var dataWrite = Encoding.ASCII.GetBytes(returnData);
-            writeStream.Write(dataWrite, 0, dataWrite.Length);
         }
-
-        clientSocket.Close();
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            if (stream != null)
+                stream.Close();
+            if (client != null)
+                client.Close();
+        }
     }
 }
+
+
