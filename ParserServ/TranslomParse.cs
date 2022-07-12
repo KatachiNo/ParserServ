@@ -13,7 +13,9 @@ public class TranslomParse
         List<string> areas = new List<string>();
         List<string> prices = new List<string>();
         List<string> data = new List<string>();
-        IWebDriver driver = new ChromeDriver();
+        ChromeOptions opt = new ChromeOptions();
+        opt.AddArgument("headless");
+        IWebDriver driver = new ChromeDriver(opt);
         driver.Navigate().GoToUrl("https://www.translom.ru/graph/index.html#graph41");
         var elementAl = driver.FindElement(By.XPath("/html/body/section/div/div[1]/ul/li[2]/div/div[1]"));
         elementAl.Click();
@@ -57,7 +59,7 @@ public class TranslomParse
 
             if (i == 18)
             {
-                translist.Add(new List<string>{"Медь 3 сорт", "Внутренний рынок", "FCA", prices[i], data[0], DateTime.Now.ToString()});
+                translist.Add(new List<string>{"Медь 3 сорт", "Внутренний рынок", "FCA", prices[i], data[2], DateTime.Now.ToString()});
             }
         }
         return translist;
