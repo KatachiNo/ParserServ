@@ -27,7 +27,7 @@ public class McenaParser
             id++;
         }
     }
-    public static void Pars(string url, int line, int id)
+    public void Pars(string url, int line, int id)
     {
         ChromeOptions option = new ChromeOptions();
         option.AddArgument("headless");
@@ -37,6 +37,6 @@ public class McenaParser
         var v = driver.FindElement(By.CssSelector(q));
         string s = v.Text.Replace(" ", "");
         int res = Int32.Parse(s);
-        sql.AddMcenaData(id, res);      
+        sql.AddMcenaData(id, res);
     }
 }
