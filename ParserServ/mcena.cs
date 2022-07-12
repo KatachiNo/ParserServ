@@ -25,7 +25,7 @@ public class McenaParser
         }
     }
     public static void Pars(string url, int line, int id)
-    {
+    я
         ChromeOptions option = new ChromeOptions();
         option.AddArgument("headless");
         IWebDriver driver = new ChromeDriver(option);
