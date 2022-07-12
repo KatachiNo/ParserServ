@@ -18,7 +18,7 @@ try
         clientThread.Start();
     }
 
-    ClientListener.Stop();
+    //ClientListener.Stop();
 }
 catch (Exception exp)
 {
