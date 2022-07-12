@@ -21,5 +21,10 @@ namespace ParserServ.SqlAccess
             string sql="Select CompanyName From MoexCompany";
             return _dataAccess.LoadData<string, dynamic>(sql, new { }, _connectionString);
         }
+        public void AddToEconomics(string name,string price)
+        {
+            string sql = "update TradingeconomicsTable set Price=@price where Name=@name IF @@ROWCOUNT=0   insert into TradingeconomicsTable values(@name,@price);";
+            _dataAccess.SaveData(sql, new {name,price},_connectionString);
+        }
     }
 }
