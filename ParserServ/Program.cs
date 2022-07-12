@@ -1,25 +1,19 @@
-﻿using System.Net;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using ParserServ;
 
 var port = 8080;
-var ip = "127.0.0.1";
 
-var listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
+var listener = new TcpListener(port);
 try
 {
-   
     listener.Start();
-    Console.WriteLine("Ожидание подключений...");
+    Console.WriteLine("Waiting connections...");
 
     while (true)
     {
-        TcpClient client = listener.AcceptTcpClient();
-        TcpServer clientObject = new TcpServer(client);
-
+        var client = listener.AcceptTcpClient();
         // создаем новый поток для обслуживания нового клиента
-        Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
-        clientThread.Start();
+        new Thread(() => { new TcpServer(client).Process(); }).Start();
     }
 }
 catch (Exception ex)
