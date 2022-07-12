@@ -6,35 +6,31 @@ namespace ParserServ;
 
 public class TcpServer
 {
-    private TcpListener server;
+    public TcpClient clientSocket;
 
-
-    public TcpServer(string ip, int port)
+    public void RunClient()
     {
-        var localAddress = IPAddress.Parse(ip);
+        var readerStream = new StreamReader(clientSocket.GetStream());
+        var writeStream = clientSocket.GetStream();
+        var returnData = readerStream.ReadLine();
+        var username = returnData;
+        Console.WriteLine($"Welcome {username} to the Server");
 
-        server = new TcpListener(localAddress, port);
-        server.Start();
-    }
-
-    public void TcpServerReading()
-    {
-        try
+        while (true)
         {
-            while (true)
+            returnData = readerStream.ReadLine();
+            if (returnData.IndexOf("Quit") > -1)
             {
-                var client = server.AcceptTcpClient();
-                var stream = client.GetStream();
-                Console.WriteLine("Подключен клиент.");
-
-                var data = new byte[256];
-                var bytes = stream.Read(data, 0, data.Length);
-                Console.WriteLine(Encoding.UTF8.GetString(data, 0, bytes));
+                Console.WriteLine($"Bye bye {username}");
+                break;
             }
+
+            Console.WriteLine($"{username} : {returnData}");
+            returnData += "\r\n";
+            var dataWrite = Encoding.ASCII.GetBytes(returnData);
+            writeStream.Write(dataWrite, 0, dataWrite.Length);
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
+
+        clientSocket.Close();
     }
 }

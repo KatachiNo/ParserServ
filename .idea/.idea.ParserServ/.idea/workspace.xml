@@ -4,7 +4,14 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="" />
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Единение... дух бесплотный">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_13_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_13_02__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,8 +30,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7db79a8c1f7541f59ceeb5c06b4a2acbd580/cb/2ace77ca/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2d2b6050bcc963227b5743c6fc3f4295c9615ad69df6b54e53a3817fc3d793b/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/MOEX.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/MOEX.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -81,6 +86,7 @@
       <updated>1657429497917</updated>
       <workItem from="1657429497918" duration="21021000" />
       <workItem from="1657529131015" duration="4309000" />
+      <workItem from="1657606266987" duration="4826000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
