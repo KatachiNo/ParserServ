@@ -6,13 +6,14 @@ namespace ParserServ;
 
 public class Moex
 {
-    public void AddStock(string secID, string board)
+    public void AddStock(string secID, string board, string name)
     {
         var connection =
             new SqlConnection(
                 @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
         connection.Open();
-        var command = new SqlCommand($@"INSERT INTO Moex (SecID,Board) VALUES ('{secID}','{board}')", connection)
+        var command = new SqlCommand($@"INSERT INTO Moex (SecID,Board,Name) VALUES ('{secID}','{board}','{name}')",
+                connection)
             .ExecuteNonQuery();
         connection.Close();
     }
