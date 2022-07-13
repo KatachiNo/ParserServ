@@ -15,6 +15,7 @@ public class Req
                     Console.WriteLine("Sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
+
                 break;
 
             case "mcena":
@@ -29,9 +30,5 @@ public class Req
                 Console.WriteLine($"Did not find this {name}");
                 break;
         }
-    }
-
-    public void Trnslt(Moex m)
-    {
     }
 }

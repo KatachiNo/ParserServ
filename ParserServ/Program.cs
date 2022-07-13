@@ -3,7 +3,7 @@ using ParserServ;
 
 
 //Граница за которую лучше не заходить. Опасная зона
-new Thread(StartServer);
+new Thread(StartServer).Start();
 
 void StartServer()
 {
@@ -18,6 +18,7 @@ void StartServer()
         {
             var client = listener.AcceptTcpClient();
             // создаем новый поток для обслуживания нового клиента
+            Console.WriteLine("Ещё один клиент подключился...");
             new Thread(() => { new TcpServer(client).Process(); }).Start();
         }
     }
