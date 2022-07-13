@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Net.Sockets;
 
@@ -12,6 +13,8 @@ public class TcpServer
         client = tcpClient;
     }
 
+    [SuppressMessage("ReSharper.DPA", "DPA0002: Excessive memory allocations in SOH",
+        MessageId = "type: System.String[]")]
     public void Process()
     {
         NetworkStream? stream = null;
@@ -32,18 +35,15 @@ public class TcpServer
                 } while (stream.DataAvailable);
 
                 var message = builder.ToString();
-                // отправляем обратно сообщение в верхнем регистре
-                //var message1 = $"Твое сообщение :{message}: получено :)";
-                //data = Encoding.UTF8.GetBytes(message1);
-                //stream.Write(data, 0, data.Length);
+
 
                 var re = message.Split("/");
-
-                new Thread(() =>
-                {
-                    r.Requ(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]), int.Parse(re[3]));
-                }).Start();
-
+                if (re.Length > 1)
+                    new Thread(() =>
+                    {
+                        r.Requ(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]),
+                            int.Parse(re[3]));
+                    }).Start();
             }
         }
         catch (Exception ex)

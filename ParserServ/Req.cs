@@ -8,7 +8,11 @@ public class Req
         {
             case "moex":
 
-                Thread.Sleep((int)DateTime.Now.Subtract(dateStart).TotalMilliseconds); //Wait until start
+                if (dateStart > DateTime.Now)
+                {
+                    Thread.Sleep((int)dateStart.Subtract(DateTime.Now).TotalMilliseconds); //Wait until start
+                }
+
                 while (DateTime.Now < dateEnd)
                 {
                     new Moex().Start();
@@ -16,6 +20,7 @@ public class Req
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
+                Console.WriteLine("Закончил moex");
                 break;
 
             case "mcena":
