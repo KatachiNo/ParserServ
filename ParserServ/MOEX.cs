@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Xml.Linq;
 
@@ -19,54 +20,55 @@ public class Moex
     }
 
 
-    public void Start(int ms)
-    {
-        while (true)
+    public void Start()
+    {   //DateTime dateStart, DateTime dateEnd, int intervalMs
+        // Thread.Sleep((int)DateTime.Now.Subtract(dateStart).TotalMilliseconds);
+        //
+        // while (DateTime.Now < dateEnd)
+        // {
+        using (var connectionReading =
+               new SqlConnection(
+                   @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
         {
-            using (var connectionReading =
+            using (var connectionWriting =
                    new SqlConnection(
                        @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
             {
-                using (var connectionWriting =
-                       new SqlConnection(
-                           @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+                connectionReading.Open();
+                connectionWriting.Open();
+                var reader = new SqlCommand("SELECT * FROM Moex", connectionReading).ExecuteReader();
+
+                while (reader.Read())
                 {
-                    connectionReading.Open();
-                    connectionWriting.Open();
-                    var reader = new SqlCommand("SELECT * FROM Moex", connectionReading).ExecuteReader();
-
-                    while (reader.Read())
+                    var value1 = reader.GetValue(1).ToString()?.Trim();
+                    var value2 = reader.GetValue(2).ToString()?.Trim();
+                    try
                     {
-                        var value1 = reader.GetValue(1).ToString().Trim();
-                        var value2 = reader.GetValue(2).ToString().Trim();
-                        try
-                        {
-                            var a = TakeData(value1, value2);
+                        var a = ParseProcess(value1, value2);
 
-                            var command =
-                                new SqlCommand(
-                                        $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
+                        var command =
+                            new SqlCommand(
+                                    $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
                             VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
-                                        connectionWriting)
-                                    .ExecuteNonQuery();
-                        }
-                        catch
-                        {
-                            var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
-                            Console.WriteLine(msg);
-                        }
+                                    connectionWriting)
+                                .ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
+                        Console.WriteLine(msg);
                     }
                 }
             }
-
-
-            Console.WriteLine("Sleeping. . .");
-            Thread.Sleep(ms); // 1 min = 60000 ms
         }
+
+        //     Console.WriteLine("Sleeping. . .");
+        //     Thread.Sleep(intervalMs); // 1 min = 60000 ms
+        // }
     }
 
 
-    private (string, string, string, string) TakeData(string? secid, string? board)
+    private (string? secid, string dataNow, string dataMoex, string Value) ParseProcess(string? secid, string? board)
     {
         DateTime fullData;
 

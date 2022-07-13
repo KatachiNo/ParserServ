@@ -15,6 +15,7 @@ public class TcpServer
     public void Process()
     {
         NetworkStream? stream = null;
+        var r = new Req();
         try
         {
             stream = client.GetStream();
@@ -32,9 +33,16 @@ public class TcpServer
 
                 var message = builder.ToString();
                 // отправляем обратно сообщение в верхнем регистре
-                message = $"Твое сообщение :{message}: получено :)";
-                data = Encoding.UTF8.GetBytes(message);
+                var message1 = $"Твое сообщение :{message}: получено :)";
+                data = Encoding.UTF8.GetBytes(message1);
                 stream.Write(data, 0, data.Length);
+
+                var re = message.Split();
+                new Thread(() =>
+                    {
+                        r.Requ(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]), int.Parse(re[3]));
+                    })
+                    .Start();
             }
         }
         catch (Exception ex)

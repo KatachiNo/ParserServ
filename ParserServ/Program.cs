@@ -2,11 +2,6 @@ using System.Net.Sockets;
 using ParserServ;
 
 
-new Moex().Start(30000);
-
-
-
-
 //Граница за которую лучше не заходить. Опасная зона
 new Thread(StartServer);
 
