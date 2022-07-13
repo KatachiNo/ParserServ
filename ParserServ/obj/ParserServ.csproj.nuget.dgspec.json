@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\prost\\Source\\Repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj": {}
+    "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj": {}
   },
   "projects": {
-    "C:\\Users\\prost\\Source\\Repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj": {
+    "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\prost\\Source\\Repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
+        "projectUniqueName": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
         "projectName": "ParserServ",
-        "projectPath": "C:\\Users\\prost\\Source\\Repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
+        "projectPath": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
         "packagesPath": "C:\\Users\\prost\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\prost\\Source\\Repos\\KatachiNo\\ParserServ\\ParserServ\\obj\\",
+        "outputPath": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xrYPjwRILeDD4/nkxzSaT1QubT9BJUNHwJsfHw6TjPJ/2/QjppBZ5rhZqcX7HF38XWnzzr1sOeTrU8nSR6ohDA==",
+  "dgSpecHash": "BelCuOqCX51Pp9t16JzidS3V91XeIUfKb1af6BQvvMdIqrk9A1aTXQCjweZ0nLRsHsoNyMZXkGAE5UzVK1IpdQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\prost\\Source\\Repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
+  "projectFilePath": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prost\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\prost\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
