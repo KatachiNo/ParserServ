@@ -39,8 +39,8 @@ public class Moex
                     {
                         var value1 = reader.GetValue(1).ToString().Trim();
                         var value2 = reader.GetValue(2).ToString().Trim();
-                        // try
-                        // {
+                        try
+                        {
                             var a = TakeData(value1, value2);
 
                             var command =
@@ -49,12 +49,12 @@ public class Moex
                             VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
                                         connectionWriting)
                                     .ExecuteNonQuery();
-                        // }
-                        // catch
-                        // {
-                        //     var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
-                        //     Console.WriteLine(msg);
-                        // }
+                        }
+                        catch
+                        {
+                            var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
+                            Console.WriteLine(msg);
+                        }
                     }
                 }
             }
