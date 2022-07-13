@@ -27,7 +27,7 @@ public class Req
                 break;
 
             default:
-                Console.WriteLine($"Did not find this {name}");
+                Console.WriteLine($"Did not find this.. how did you say?  - {name}");
                 break;
         }
     }
