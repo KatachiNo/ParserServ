@@ -39,8 +39,8 @@ public class Moex
                     {
                         var value1 = reader.GetValue(1).ToString().Trim();
                         var value2 = reader.GetValue(2).ToString().Trim();
-                        try
-                        {
+                        // try
+                        // {
                             var a = TakeData(value1, value2);
 
                             var command =
@@ -49,12 +49,12 @@ public class Moex
                             VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
                                         connectionWriting)
                                     .ExecuteNonQuery();
-                        }
-                        catch
-                        {
-                            var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
-                            Console.WriteLine(msg);
-                        }
+                        // }
+                        // catch
+                        // {
+                        //     var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
+                        //     Console.WriteLine(msg);
+                        // }
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class Moex
 
     private (string, string, string, string) TakeData(string? secid, string? board)
     {
-        string fullData;
+        DateTime fullData;
 
         var xml = XDocument.Load(
             $@"https://iss.moex.com/iss/engines/stock/markets/shares/boards/{board}/securities/{secid}/.xml?iss.meta=off");
@@ -95,17 +95,18 @@ public class Moex
 
         if (t2 == "Friday")
         {
-            fullData = fullData_temp.AddDays(3).ToString();
+            fullData = fullData_temp.AddDays(3);
         }
         else
         {
-            fullData = fullData_temp.AddDays(1).ToString();
+            fullData = fullData_temp.AddDays(1);
         }
 
-
+        var dataNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
+        var dataMoex = fullData.ToString("yyyy-MM-dd HH:mm:ss.fff");
         Console.WriteLine(
-            $"Акция {secid} последняя цена {lastPrice.Value} время парсинга {DateTime.Now} Время по MOEX {fullData}");
+            $"Акция {secid} последняя цена {lastPrice.Value} время парсинга {dataNow} Время по MOEX {dataMoex}");
 
-        return (secid, DateTime.Now.ToString(), fullData, lastPrice.Value);
+        return (secid, dataNow, dataMoex, lastPrice.Value);
     }
 }
