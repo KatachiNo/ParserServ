@@ -21,9 +21,9 @@ namespace ParserServ.SqlAccess
             string sql="Select CompanyName From MoexCompany";
             return _dataAccess.LoadData<string, dynamic>(sql, new { }, _connectionString);
         }
-        public void AddMcenaData(int id, int res, DateTime date)
+        public void AddMcenaData(int id, decimal res, DateTime date)
         {
-            string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@Price, @ProductID, @Date)";
+            string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
             _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
         }
     }
