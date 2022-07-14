@@ -36,7 +36,7 @@ public class McenaParser
         string q = "body > main > div.main__content > article:nth-child(3) > div > div > div > div > table > tbody > tr:nth-child(" + line.ToString() + ") > td:nth-child(2)";
         var v = driver.FindElement(By.CssSelector(q));
         string s = v.Text.Replace(" ", "");
-        int res = (int) 0.8 * Int32.Parse(s);
-        sql.AddMcenaData(id, res);
+        int res = (int) (0.8 * Int32.Parse(s));
+        sql.AddMcenaData(id, res, DateTime.Now);
     }
 }
