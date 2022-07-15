@@ -90,8 +90,12 @@ public class excel
             List<record> res = new List<record>();
             List<string> caterogy = new List<string>();
             caterogy.Add(ws["B79"].ToString());
+            string[] n = caterogy[0].Split(' ');
+            string fn = "";
+            for (int i = 0; i < n.Length - 1; i++)
+                fn = fn + " " + n[i];
             using (sw = new StreamWriter(p, true))
-                sw.WriteLine("Начало обработки файла " + caterogy[0] + ".xls: " + DateTime.Now.ToString());
+                sw.WriteLine("Начало обработки файла" + fn + ".xls: " + DateTime.Now.ToString());
             int lines = 0;
             for (int i = 79; i < ws.RowCount; i++)
             {
