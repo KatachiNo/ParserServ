@@ -7,34 +7,50 @@ using System.Text;
 using System.Threading.Tasks;
 using IronXL;
 using System.IO.Compression;
-using IronXL.Styles;
 
 namespace ParserServ;
 
 public class excel
 {
+    StreamWriter sw;
     List<string> files;
+    string p;
     public excel()
-    {
-        p();
+    {        
+        Load();
     }
-    public void p()
+    public void GetArc()
     {
         if (File.Exists("price.zip"))
-        {
             File.Delete("price.zip");
+        p = Environment.CurrentDirectory + @"\эксель_лог.txt";
+        if (!File.Exists(p))
+            File.Create(p).Close();
+        using (sw = new StreamWriter(p, true))
+        {
+            sw.WriteLine("Начало парсинга: " + DateTime.Now.ToString());
+            sw.WriteLine("Запрос файла: " + DateTime.Now.ToString());
         }
         string link = "https://www.oreht.ru/price/price.zip";
         using (WebClient client = new WebClient())
-        {
             client.DownloadFile(link, "price.zip");
-        }
+        if (File.Exists("price.zip"))
+            using (sw = new StreamWriter(p, true))
+                sw.WriteLine("Файл получен: " + DateTime.Now.ToString());
+        else
+            using (sw = new StreamWriter(p, true))
+                sw.WriteLine("Файл не получен: " + DateTime.Now.ToString());
+    }
+    public void UnpackArc()
+    {
         string path = Environment.CurrentDirectory + @"\эксель";
+        if (!Directory.Exists(path))
+            Directory.CreateDirectory(path);
         DirectoryInfo dirInfo = new DirectoryInfo(path);
         foreach (FileInfo file in dirInfo.GetFiles())
-        {
             file.Delete();
-        }
+        using (sw = new StreamWriter(p, true))
+            sw.WriteLine("Начало распаковки архива: " + DateTime.Now.ToString());
         ZipFile.ExtractToDirectory("price.zip", path);
         files = new List<string>();
         foreach (FileInfo file in dirInfo.GetFiles())
@@ -42,6 +58,15 @@ public class excel
             if ((file.Name.StartsWith('0')) || (file.Name.StartsWith('1')) || (file.Name.StartsWith('2')))
                 files.Add(file.FullName);
         }
+        if (files.Count == 0)
+            using (sw = new StreamWriter(p, true))
+                sw.WriteLine("Архив распакован: " + DateTime.Now.ToString());
+        else
+            using (sw = new StreamWriter(p, true))
+                sw.WriteLine("Архив не распакован: " + DateTime.Now.ToString());
+    }
+    public void ExcelParsing()
+    {
         foreach (string file in files)
         {
             WorkBook wb = WorkBook.Load(file);
@@ -49,6 +74,9 @@ public class excel
             List<List<string>> res = new List<List<string>>();
             List<string> caterogy = new List<string>();
             caterogy.Add(ws["B79"].ToString());
+            using (sw = new StreamWriter(p, true))
+                sw.WriteLine("Начало обработки файла " + caterogy[0] + ".xls: " + DateTime.Now.ToString());
+            int lines = 0;
             for (int i = 79; i < ws.RowCount; i++)
             {
                 string currentcat = "";
@@ -85,7 +113,10 @@ public class excel
                     sublist.Add(currentcat);
                     res.Add(sublist);
                 }
+                lines++;
             }
+            using (sw = new StreamWriter(p, true))
+                sw.WriteLine("Обработано " + lines + " строк: " + DateTime.Now.ToString());
             /*
             //проверка
             foreach (var item in res)
@@ -97,6 +128,13 @@ public class excel
             }
             break;
             */
+            //Console.WriteLine(file);
         }
+    }
+    public void Load()
+    {
+        GetArc();
+        UnpackArc();
+        ExcelParsing();
     }
 }
