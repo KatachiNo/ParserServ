@@ -2,4 +2,5 @@
 
 Console.WriteLine();
 TranslomParse t = new TranslomParse();
-t.GetFromSite();
+//t.SaveTypes();
+t.SendTranslomInBase();
