@@ -7,22 +7,23 @@ namespace ParserServ;
 public class TcpServer
 {
     public TcpClient client;
+    public static List<Thread> threads;
 
     public TcpServer(TcpClient tcpClient)
     {
         client = tcpClient;
     }
 
-    [SuppressMessage("ReSharper.DPA", "DPA0002: Excessive memory allocations in SOH",
-        MessageId = "type: System.String[]")]
     public void Process()
     {
+        threads = new List<Thread>();
         NetworkStream? stream = null;
         var r = new Req();
         try
         {
             stream = client.GetStream();
             var data = new byte[64]; // буфер для получаемых данных
+
             while (true)
             {
                 // получаем сообщение
@@ -39,11 +40,16 @@ public class TcpServer
 
                 var re = message.Split("/");
                 if (re.Length > 1)
-                    new Thread(() =>
+                {
+                    var n = re[0];
+                    var tre = new Thread(() =>
                     {
-                        r.Requ(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]),
-                            int.Parse(re[3]));
-                    }).Start();
+                        r.PreReq(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]),
+                            int.Parse(re[3]), re[4]);
+                    });
+                    tre.Name = n;
+                    threads.Add(tre);
+                }
             }
         }
         catch (Exception ex)

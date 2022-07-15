@@ -1,8 +1,26 @@
-﻿namespace ParserServ;
+﻿using System.Net.Sockets;
+
+namespace ParserServ;
 
 public class Req
 {
-    public void Requ(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
+    public void PreReq(string name, DateTime dateStart, DateTime dateEnd, int intervalMs, string status)
+    {
+        foreach (var variable in TcpServer.threads)
+        {
+            if (variable.Name == name)
+            {
+                Console.WriteLine($"its unavailable since thread with {name} already exists");
+            }
+            else
+            {
+                Requ(name, dateStart, dateEnd, intervalMs);
+            }
+        }
+    }
+
+
+    private void Requ(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
     {
         switch (name)
         {
