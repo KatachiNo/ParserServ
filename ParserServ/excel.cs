@@ -97,7 +97,7 @@ public class excel
             {
                 string currentcat = "";
                 foreach (var t in caterogy)
-                    currentcat = currentcat + t;
+                    currentcat = currentcat + " -> " + t;
                 List<string> sublist = new List<string>();
                 bool isit = false;
                 foreach (var item in ws[$"B{i}:H{i}"])
