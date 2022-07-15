@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using IronXL;
 using System.IO.Compression;
+using CsvHelper;
+using System.Globalization;
+using CsvHelper.Configuration;
 
 namespace ParserServ;
 
@@ -15,18 +18,14 @@ public class excel
     StreamWriter sw;
     List<string> files;
     string p;
-    public excel()
-    {        
-        Load();
-    }
-    public void GetArc()
+    void GetArc()
     {
         if (File.Exists("price.zip"))
             File.Delete("price.zip");
         p = Environment.CurrentDirectory + @"\эксель_лог.txt";
         if (!File.Exists(p))
             File.Create(p).Close();
-        using (sw = new StreamWriter(p, true))
+        using (sw = new StreamWriter(p, false))
         {
             sw.WriteLine("Начало парсинга: " + DateTime.Now.ToString());
             sw.WriteLine("Запрос файла: " + DateTime.Now.ToString());
@@ -41,7 +40,7 @@ public class excel
             using (sw = new StreamWriter(p, true))
                 sw.WriteLine("Файл не получен: " + DateTime.Now.ToString());
     }
-    public void UnpackArc()
+    void UnpackArc()
     {
         string path = Environment.CurrentDirectory + @"\эксель";
         if (!Directory.Exists(path))
@@ -65,13 +64,30 @@ public class excel
             using (sw = new StreamWriter(p, true))
                 sw.WriteLine("Архив не распакован: " + DateTime.Now.ToString());
     }
-    public void ExcelParsing()
+    void ExcelParsing()
     {
+        string path = Environment.CurrentDirectory + @"\prices.csv";
+        if (!File.Exists(path))
+            File.Create(path).Close();
+        var config = new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = false, Delimiter = ";", Encoding = Encoding.UTF8 };
+        using (sw = new StreamWriter(path, false, Encoding.UTF8))
+        using (var csv = new CsvWriter(sw, config))
+        {
+            csv.WriteField("Артикул");
+            csv.WriteField("Название товара");
+            csv.WriteField("Единица измерения");
+            csv.WriteField("Количество в упаковке");
+            csv.WriteField("Цена, руб");
+            csv.WriteField("Остаток");
+            csv.WriteField("Категория");
+            csv.NextRecord();
+        }
+
         foreach (string file in files)
         {
             WorkBook wb = WorkBook.Load(file);
             WorkSheet ws = wb.GetWorkSheet("Лист 1");
-            List<List<string>> res = new List<List<string>>();
+            List<record> res = new List<record>();
             List<string> caterogy = new List<string>();
             caterogy.Add(ws["B79"].ToString());
             using (sw = new StreamWriter(p, true))
@@ -90,7 +106,6 @@ public class excel
                         sublist.Add(item.Text);
                     if (item.Style.Font.Italic)
                         isit = true;
-
                 }
                 if (sublist.Count == 0)
                     break;
@@ -108,27 +123,21 @@ public class excel
                         caterogy.Add(sublist[0]);
                     }
                 }
-                else
+                else if (sublist.Count >= 6)
                 {
+                    if (sublist.Count == 7)
+                        sublist.RemoveAt(5);
                     sublist.Add(currentcat);
-                    res.Add(sublist);
+                    res.Add(new record { art = sublist[0], name = sublist[1], unit = sublist[2], num = sublist[3], price = sublist[4], rem = sublist[5], cat = sublist[6]  });
                 }
                 lines++;
             }
             using (sw = new StreamWriter(p, true))
                 sw.WriteLine("Обработано " + lines + " строк: " + DateTime.Now.ToString());
-            /*
-            //проверка
-            foreach (var item in res)
-            {
-                foreach (var v in item)
-                    Console.Write(v + "|");
-                Console.WriteLine();
-                Console.WriteLine();
-            }
-            break;
-            */
-            //Console.WriteLine(file);
+
+            using (sw = new StreamWriter(path, true, Encoding.UTF8))
+            using (var csv = new CsvWriter(sw, config))
+                csv.WriteRecords(res);
         }
     }
     public void Load()
@@ -137,4 +146,14 @@ public class excel
         UnpackArc();
         ExcelParsing();
     }
+}
+public class record
+{
+    public string art { get; set; }
+    public string name { get; set; }
+    public string unit { get; set; }
+    public string num { get; set; }
+    public string price { get; set; }
+    public string rem { get; set; }
+    public string cat { get; set; }
 }
