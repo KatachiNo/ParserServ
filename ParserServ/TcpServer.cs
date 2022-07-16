@@ -7,7 +7,7 @@ namespace ParserServ;
 public class TcpServer
 {
     public TcpClient client;
-    public static List<Thread> threads;
+
 
     public TcpServer(TcpClient tcpClient)
     {
@@ -16,7 +16,6 @@ public class TcpServer
 
     public void Process()
     {
-        threads = new List<Thread>();
         NetworkStream? stream = null;
         var r = new Req();
         try
@@ -37,18 +36,35 @@ public class TcpServer
 
                 var message = builder.ToString();
 
-
                 var re = message.Split("/");
                 if (re.Length > 1)
                 {
                     var n = re[0];
-                    var tre = new Thread(() =>
+                    var retReq = r.PreReq(re[0], re[4]);
+
+                    if (retReq == "not exists")
                     {
-                        r.PreReq(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]),
-                            int.Parse(re[3]), re[4]);
-                    });
-                    tre.Name = n;
-                    threads.Add(tre);
+                        var tre = new Thread(() =>
+                        {
+                            r.Requ(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]),
+                                int.Parse(re[3]));
+                        });
+                        tre.Name = n;
+                        tre.Start();
+                        Program.threads.Add(tre);
+                    }
+                    else if (retReq == "exists")
+                    {
+                        Console.WriteLine($"Thread {re[0]} already exists ");
+                    }
+                    else if (retReq == "Aborted")
+                    {
+                        Console.WriteLine($"Thread {re[0]} Aborted");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid start");
+                    }
                 }
             }
         }

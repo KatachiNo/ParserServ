@@ -4,23 +4,45 @@ namespace ParserServ;
 
 public class Req
 {
-    public void PreReq(string name, DateTime dateStart, DateTime dateEnd, int intervalMs, string status)
+    public string PreReq(string name, string status)
     {
-        foreach (var variable in TcpServer.threads)
+        switch (status)
         {
-            if (variable.Name == name)
+            case "start":
             {
-                Console.WriteLine($"its unavailable since thread with {name} already exists");
+                foreach (var variable in Program.threads)
+                {
+                    if (variable.Name == name)
+                    {
+                        return "exists";
+                    }
+                }
+
+                return "not exists";
             }
-            else
+            case "stop":
             {
-                Requ(name, dateStart, dateEnd, intervalMs);
+                foreach (var variable in Program.threads)
+                {
+                    if (variable.Name == name)
+                    {
+                        variable.Abort();
+                        return "Aborted";
+                    }
+                }
+
+                break;
             }
+            default:
+                Console.WriteLine("Invalid status");
+                break;
         }
+
+        return "Invalid";
     }
 
 
-    private void Requ(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
+    public void Requ(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
     {
         switch (name)
         {
