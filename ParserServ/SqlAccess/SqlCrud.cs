@@ -23,8 +23,9 @@ namespace ParserServ.SqlAccess
         }
         public void AddToEconomics(string name,string price)
         {
-            string sql = "update TradingeconomicsTable set Price=@price where Name=@name IF @@ROWCOUNT=0   insert into TradingeconomicsTable values(@name,@price);";
-            _dataAccess.SaveData(sql, new {name,price},_connectionString);
+            DateTime date = DateTime.Now;
+            string sql = " insert into TradingeconomicsTable values(@name,@price,@date);";
+            _dataAccess.SaveData(sql, new {name,price,date},_connectionString);
         }
     }
 }

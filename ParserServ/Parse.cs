@@ -18,10 +18,14 @@ namespace ParserServ
         {
             
             string pattern = @"\b(Нефть|Газ|Бензин|Топочный мазут|Серебро|Золото)\b";
-            WebDriver driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("headless");
+            WebDriver driver = new ChromeDriver(options);           
             driver.Navigate().GoToUrl("https://ru.tradingeconomics.com/commodities");
-            var data = driver.FindElements(By.ClassName("datatable-row"));           
-            foreach (var item in data)
+            var row = driver.FindElements(By.ClassName("datatable-row"));    
+            var alternative= driver.FindElements(By.ClassName("datatable-row-alternating"));
+            var finalresult = row.Union(alternative).ToList();
+            foreach (var item in finalresult)
             {
                 var name = item.FindElement(By.ClassName("datatable-item-first"));
                 if (Regex.IsMatch(name.Text, pattern, RegexOptions.IgnoreCase))
@@ -33,6 +37,7 @@ namespace ParserServ
             }
 
         }
+
         public void Parse()
         {
             LoadData();
