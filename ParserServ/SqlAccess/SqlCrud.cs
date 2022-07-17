@@ -1,4 +1,9 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ParserServ.SqlAccess
 {
@@ -16,11 +21,10 @@ namespace ParserServ.SqlAccess
             string sql="Select CompanyName From MoexCompany";
             return _dataAccess.LoadData<string, dynamic>(sql, new { }, _connectionString);
         }
-
-        public void AddInTranslom(string id, string MetallType, string AreaType, string AreaName, string Price, string Date, string ParseDate)
+        public void AddMcenaData(int id, decimal res, DateTime date)
         {
-            string sql = " insert into Translom values(@id,@MetallType,@AreaType,@AreaName,@Price,@Date,@ParseDate);";
-            _dataAccess.SaveData(sql, new { id, MetallType, AreaType, AreaName, Price, Date, ParseDate}, _connectionString);
+            string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
+            _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
         }
     }
 }
