@@ -10,7 +10,7 @@ using ParserServ.SqlAccess;
 
 namespace ParserServ
 {
-    internal class Parser
+    internal class Parser //CoalParser
     {
         private Dictionary<string, string> _comparedData = new();
      

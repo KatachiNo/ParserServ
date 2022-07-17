@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="git ignore">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Parse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Parse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/SqlAccess/SqlCrud.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/SqlAccess/SqlCrud.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +32,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/902c7234ac8172b6a14385988189f4d260e1831f5f3f40c681be9de3dd842c40/Thread.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParserServ/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -384,10 +386,10 @@
           <line>57</line>
           <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\TcpServer.cs" initialLine="54" containingFunctionPresentation="method 'Process'">
             <startOffsets>
-              <option value="1613" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="1613" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
