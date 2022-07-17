@@ -41,25 +41,25 @@ public class TranslomParse
         {
             if (i < 4)
             {
-                translist.Add(new List<string>{"Лом черных металлов", "NULL", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-dd-MM HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Лом черных металлов", "NULL", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
             }
             if ((i>=4)&&(i<13))
             {
-                translist.Add(new List<string>{"Лом черных металлов", "Внутренний рынок", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-dd-MM HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Лом черных металлов", "Внутренний рынок", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
             }
             if ((i > 13)&&(i<16))
             {
-                translist.Add(new List<string>{"Лом черных металлов", "Внешний рынок", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-dd-MM HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Лом черных металлов", "Внешний рынок", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
             }
 
             if (i == 16)
             {
-                translist.Add(new List<string>{"Алюминий смешанный", "Внутренний рынок", "FCA", prices[i], data[1], DateTime.Now.ToString("yyyy-dd-MM HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Алюминий смешанный", "Внутренний рынок", "FCA", prices[i], data[1], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
             }
 
             if (i == 18)
             {
-                translist.Add(new List<string>{"Медь 3 сорт", "Внутренний рынок", "FCA", prices[i], data[2], DateTime.Now.ToString("yyyy-dd-MM HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Медь 3 сорт", "Внутренний рынок", "FCA", prices[i], data[2], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
             }
         }
         return translist;
