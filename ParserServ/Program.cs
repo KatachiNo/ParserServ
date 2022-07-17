@@ -4,12 +4,19 @@ using System.Net.Sockets;
 
 namespace ParserServ
 {
-    
     //Сообщение будущему я: Протестировать аборт, добавить возможность нескольких сообщений из одного потока
     internal class Program
     {
-        public static List<Thread> threads = new List<Thread>();
-       
+        public static Dictionary<string, Task> Tasks = new();
+
+        public static Dictionary<string, bool> TaskStop = new()
+        {
+            { "moex", false },
+            { "mcena", false },
+            { "coal", false },
+            { "translom", false }
+        };
+
         static void Main()
         {
             //Граница за которую лучше не заходить. Опасная зона

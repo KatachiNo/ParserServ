@@ -1,4 +1,5 @@
 ﻿using System.Net.Sockets;
+using OpenQA.Selenium.DevTools.V103.Page;
 
 namespace ParserServ;
 
@@ -10,9 +11,9 @@ public class Req
         {
             case "start":
             {
-                foreach (var variable in Program.threads)
+                foreach (var variable in Program.Tasks)
                 {
-                    if (variable.Name == name)
+                    if (variable.Key == name)
                     {
                         return "exists";
                     }
@@ -22,11 +23,11 @@ public class Req
             }
             case "stop":
             {
-                foreach (var variable in Program.threads)
+                foreach (var variable in Program.Tasks)
                 {
-                    if (variable.Name == name)
+                    if (variable.Key == name)
                     {
-                        variable.Abort();
+                        Program.TaskStop[name] = true;
                         return "Aborted";
                     }
                 }
@@ -44,6 +45,7 @@ public class Req
 
     public void Requ(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
     {
+        Program.TaskStop[name] = false;
         switch (name)
         {
             case "moex":
@@ -53,7 +55,7 @@ public class Req
                     Thread.Sleep((int)dateStart.Subtract(DateTime.Now).TotalMilliseconds); //Wait until start
                 }
 
-                while (DateTime.Now < dateEnd)
+                while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new Moex().Start();
                     Console.WriteLine("Sleeping. . .");
@@ -72,13 +74,13 @@ public class Req
                 break;
 
             case "translom":
-                
+
                 if (dateStart > DateTime.Now)
                 {
                     Thread.Sleep((int)dateStart.Subtract(DateTime.Now).TotalMilliseconds); //Wait until start
                 }
 
-                while (DateTime.Now < dateEnd)
+                while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new TranslomParse().SendTranslomInBase();
                     Console.WriteLine("Sleeping. . .");

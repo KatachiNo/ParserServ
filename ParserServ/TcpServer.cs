@@ -44,26 +44,34 @@ public class TcpServer
 
                     if (retReq == "not exists")
                     {
-                        var tre = new Thread(() =>
+                        var tsk = new Task(() =>
                         {
                             r.Requ(re[0], DateTime.Parse(re[1]), DateTime.Parse(re[2]),
                                 int.Parse(re[3]));
                         });
-                        tre.Name = n;
-                        tre.Start();
-                        Program.threads.Add(tre);
+                        tsk.Start();
+                        Program.Tasks.Add(re[0], tsk);
                     }
                     else if (retReq == "exists")
                     {
-                        Console.WriteLine($"Thread {re[0]} already exists ");
+                        var msg = $"Task {re[0]} already exists ";
+                        var d = Encoding.Unicode.GetBytes(msg);
+                        stream.Write(d, 0, d.Length);
+                        Console.WriteLine(msg);
                     }
                     else if (retReq == "Aborted")
                     {
-                        Console.WriteLine($"Thread {re[0]} Aborted");
+                        var msg = $"Task {re[0]} Aborted";
+                        var d = Encoding.Unicode.GetBytes(msg);
+                        stream.Write(d, 0, d.Length);
+                        Console.WriteLine(msg);
                     }
                     else
                     {
-                        Console.WriteLine("Invalid start");
+                        var msg = $"Invalid start";
+                        var d = Encoding.Unicode.GetBytes(msg);
+                        stream.Write(d, 0, d.Length);
+                        Console.WriteLine(msg);
                     }
                 }
             }

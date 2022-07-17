@@ -4,7 +4,13 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="git ignore" />
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Руками добавил TranslomParse.cs">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -261,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658005930627</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Руками добавил TranslomParse.cs">
+      <created>1658072149155</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658072149155</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +293,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="origin/develop" />
                       </list>
                     </value>
                   </entry>
@@ -316,7 +329,8 @@
     <MESSAGE value="Мусор" />
     <MESSAGE value="Запрет на запуск парсинга одного сайта несколько раз подряд" />
     <MESSAGE value="git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignore" />
+    <MESSAGE value="Руками добавил TranslomParse.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Руками добавил TranslomParse.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -335,69 +349,30 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ParserServ/TcpServer.cs</url>
-          <line>42</line>
-          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\TcpServer.cs" initialLine="40" containingFunctionPresentation="method 'Process'">
-            <startOffsets>
-              <option value="1008" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1036" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ParserServ/TcpServer.cs</url>
-          <line>46</line>
-          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\TcpServer.cs" initialLine="43" containingFunctionPresentation="method 'Process'">
-            <startOffsets>
-              <option value="1145" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1181" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ParserServ/Req.cs</url>
-          <line>7</line>
+          <line>8</line>
           <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\Req.cs" initialLine="7" containingFunctionPresentation="method 'PreReq'">
             <startOffsets>
-              <option value="126" />
+              <option value="168" />
             </startOffsets>
             <endOffsets>
-              <option value="127" />
+              <option value="169" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ParserServ/TcpServer.cs</url>
-          <line>48</line>
-          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\TcpServer.cs" initialLine="45" containingFunctionPresentation="method 'Process'">
-            <startOffsets>
-              <option value="1203" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1230" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ParserServ/TcpServer.cs</url>
+          <url>file://$PROJECT_DIR$/ParserServ/Req.cs</url>
           <line>57</line>
-          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\TcpServer.cs" initialLine="54" containingFunctionPresentation="method 'Process'">
+          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\Req.cs" initialLine="57" containingFunctionPresentation="method 'Requ'">
             <startOffsets>
-              <option value="-1" />
+              <option value="1418" />
             </startOffsets>
             <endOffsets>
-              <option value="-1" />
+              <option value="1475" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
