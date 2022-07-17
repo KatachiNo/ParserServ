@@ -10,20 +10,19 @@ using ParserServ.SqlAccess;
 
 namespace ParserServ
 {
-    internal class Parser //CoalParser
+    internal class T_economics //CoalParser
     {
         private Dictionary<string, string> _comparedData = new();
-     
-        public void  LoadData()
+
+        public void LoadData()
         {
-            
             string pattern = @"\b(Нефть|Газ|Бензин|Топочный мазут|Серебро|Золото)\b";
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("headless");
-            WebDriver driver = new ChromeDriver(options);           
+            WebDriver driver = new ChromeDriver(options);
             driver.Navigate().GoToUrl("https://ru.tradingeconomics.com/commodities");
-            var row = driver.FindElements(By.ClassName("datatable-row"));    
-            var alternative= driver.FindElements(By.ClassName("datatable-row-alternating"));
+            var row = driver.FindElements(By.ClassName("datatable-row"));
+            var alternative = driver.FindElements(By.ClassName("datatable-row-alternating"));
             var finalresult = row.Union(alternative).ToList();
             foreach (var item in finalresult)
             {
@@ -35,20 +34,16 @@ namespace ParserServ
                     _comparedData.Add(splitedname, value.Text);
                 }
             }
-
         }
 
-        public void Parse()
+        public void Start()
         {
             LoadData();
             SqlCrud sqlCrud = new SqlCrud();
             foreach (var item in _comparedData)
             {
-                sqlCrud.AddToEconomics(item.Key,item.Value);
+                sqlCrud.AddToEconomics(item.Key, item.Value);
             }
-            
-
         }
-        
     }
 }

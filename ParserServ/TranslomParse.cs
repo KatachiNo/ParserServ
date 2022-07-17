@@ -74,7 +74,7 @@ public class TranslomParse
             sql.AddInTranslom( t[i][0], t[i][1], t[i][2]);
         }
     }
-    public void SendTranslomInBase()
+    public void Start()
     {
         SqlCrud sql = new SqlCrud();
         List<List<string>> t = GetFromSite();

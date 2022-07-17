@@ -9,7 +9,7 @@ namespace ParserServ
     {
         public static Dictionary<string, Task> Tasks = new();
 
-        public static Dictionary<string, bool> TaskStop = new()
+        public static readonly Dictionary<string, bool> TaskStop = new()
         {
             { "moex", false },
             { "mcena", false },

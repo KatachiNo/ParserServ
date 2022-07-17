@@ -5,7 +5,7 @@ namespace ParserServ;
 
 public class Req
 {
-    public string PreReq(string name, string status)
+    public string DoStatus(string name, string status)
     {
         switch (status)
         {
@@ -28,11 +28,11 @@ public class Req
                     if (variable.Key == name)
                     {
                         Program.TaskStop[name] = true;
-                        return "Aborted";
+                        return "aborted";
                     }
                 }
 
-                break;
+                return "there is no working thread";
             }
             default:
                 Console.WriteLine("Invalid status");
@@ -43,17 +43,15 @@ public class Req
     }
 
 
-    public void Requ(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
+    public void SRequest(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
     {
         Program.TaskStop[name] = false;
         switch (name)
         {
             case "moex":
 
-                if (dateStart > DateTime.Now)
-                {
-                    Thread.Sleep((int)dateStart.Subtract(DateTime.Now).TotalMilliseconds); //Wait until start
-                }
+
+                CheckDateForWait(dateStart);
 
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
@@ -66,23 +64,37 @@ public class Req
                 break;
 
             case "mcena":
-                Console.WriteLine("got it mcena");
+                CheckDateForWait(dateStart);
+
+                while (DateTime.Now < dateEnd && !Program.TaskStop[name])
+                {
+                    new McenaParser().Start();
+                    Console.WriteLine("Sleeping. . .");
+                    Thread.Sleep(intervalMs); // 1 min = 60000 ms
+                }
+                Console.WriteLine("Закончил mcena");
                 break;
 
             case "t_economics":
-                Console.WriteLine("got it t_economics");
+                CheckDateForWait(dateStart);
+                
+                while (DateTime.Now < dateEnd && !Program.TaskStop[name])
+                {
+                    new T_economics().Start();
+                    Console.WriteLine("Sleeping. . .");
+                    Thread.Sleep(intervalMs); // 1 min = 60000 ms
+                }
+                
+                Console.WriteLine("Закончил t_economics");
                 break;
 
             case "translom":
 
-                if (dateStart > DateTime.Now)
-                {
-                    Thread.Sleep((int)dateStart.Subtract(DateTime.Now).TotalMilliseconds); //Wait until start
-                }
+                CheckDateForWait(dateStart);
 
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
-                    new TranslomParse().SendTranslomInBase();
+                    new TranslomParse().Start();
                     Console.WriteLine("Sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
@@ -92,6 +104,14 @@ public class Req
             default:
                 Console.WriteLine($"Did not find this.. how did you say?  - {name}");
                 break;
+        }
+    }
+
+    private void CheckDateForWait(DateTime dateStart)
+    {
+        if (dateStart > DateTime.Now)
+        {
+            Thread.Sleep((int)dateStart.Subtract(DateTime.Now).TotalMilliseconds); //Wait until start
         }
     }
 }
