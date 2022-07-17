@@ -17,10 +17,15 @@ namespace ParserServ.SqlAccess
             return _dataAccess.LoadData<string, dynamic>(sql, new { }, _connectionString);
         }
 
-        public void AddInTranslom(string id, string MetallType, string AreaType, string AreaName, string Price, string Date, string ParseDate)
+        public void AddInTranslomParse(int AreaID, string Price, string DateTranslom, string DateParse)
         {
-            string sql = " insert into Translom values(@id,@MetallType,@AreaType,@AreaName,@Price,@Date,@ParseDate);";
-            _dataAccess.SaveData(sql, new { id, MetallType, AreaType, AreaName, Price, Date, ParseDate}, _connectionString);
+            string sql = "INSERT INTO TranslomParse (AreaID, Price, DateTranslom, DateParse) VALUES (@AreaID, @Price, @DateTranslom, @DateParse)";
+            _dataAccess.SaveData(sql, new {AreaID, Price, DateTranslom, DateParse}, _connectionString);
+        }
+        public void AddInTranslom(string MetallType, string AreaType, string AreaName)
+        {
+            string sql = "INSERT INTO Translom (MetallType, AreaType, AreaName) VALUES (@MetallType, @AreaType, @AreaName)";
+            _dataAccess.SaveData(sql, new {MetallType, AreaType, AreaName}, _connectionString);
         }
         
         
