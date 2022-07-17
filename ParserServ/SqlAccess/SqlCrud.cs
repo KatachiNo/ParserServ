@@ -22,5 +22,12 @@ namespace ParserServ.SqlAccess
             string sql = " insert into Translom values(@id,@MetallType,@AreaType,@AreaName,@Price,@Date,@ParseDate);";
             _dataAccess.SaveData(sql, new { id, MetallType, AreaType, AreaName, Price, Date, ParseDate}, _connectionString);
         }
+        
+        
+        public void AddMcenaData(int id, decimal res, DateTime date)
+        {
+            string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
+            _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
+        }
     }
 }
