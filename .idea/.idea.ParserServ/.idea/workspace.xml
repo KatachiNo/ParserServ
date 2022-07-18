@@ -4,7 +4,8 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="не критичные">
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Добавил проверку на мусор при добавлении акций">
+      <change beforePath="$PROJECT_DIR$/ParserServ/MOEX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/MOEX.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +40,7 @@
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TcpServer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TcpServer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TcpServer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TcpServer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -106,7 +108,7 @@
       <workItem from="1658005630649" duration="6605000" />
       <workItem from="1658139512573" duration="3341000" />
       <workItem from="1658162794167" duration="2292000" />
-      <workItem from="1658177789146" duration="5311000" />
+      <workItem from="1658177789146" duration="5614000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
@@ -381,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658183151667</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Обернул в try catch CheckStatusAndDo">
+      <created>1658183490292</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1658183490292</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,8 +423,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Merge with tcp_server_part" />
-    <MESSAGE value="Удалил мусор" />
     <MESSAGE value="Объеденил ветку Moex и Tcp_Server_Part" />
     <MESSAGE value="Поправил .gitignore по просьбе Никиты" />
     <MESSAGE value="Добавил в метод AddStock значение Name" />
@@ -439,6 +446,8 @@
     <MESSAGE value="Правки" />
     <MESSAGE value="Исправление" />
     <MESSAGE value="не критичные" />
-    <option name="LAST_COMMIT_MESSAGE" value="не критичные" />
+    <MESSAGE value="Обернул в try catch CheckStatusAndDo" />
+    <MESSAGE value="Добавил проверку на мусор при добавлении акций" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил проверку на мусор при добавлении акций" />
   </component>
 </project>

@@ -16,7 +16,7 @@ public class Moex
         }
         catch
         {
-            Program.MsgSendAndWrite($"Stock was not added", stream);
+            Program.MsgSendAndWrite($"Stock was not added since Moex does not give information about it", stream);
             return;
         }
 
