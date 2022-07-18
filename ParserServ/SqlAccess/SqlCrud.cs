@@ -40,14 +40,7 @@ namespace ParserServ.SqlAccess
             string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
             _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
         }
-        
-        public void AddToEconomics(string name,string price)
-        {
-            DateTime date = DateTime.Now;
-            string sql = " insert into TradingeconomicsTable values(@name,@price,@date);";
-            _dataAccess.SaveData(sql, new {name,price,date},_connectionString);
-            string sql = " insert into Translom values(@id,@MetallType,@AreaType,@AreaName,@Price,@Date,@ParseDate);";
-            _dataAccess.SaveData(sql, new { id, MetallType, AreaType, AreaName, Price, Date, ParseDate}, _connectionString);
-        }
+       
+      
     }
 }
