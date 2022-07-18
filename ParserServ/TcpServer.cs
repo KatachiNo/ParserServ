@@ -34,8 +34,16 @@ public class TcpServer
                     builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
                 } while (stream.DataAvailable);
 
-
-                ConvertOfRequest(builder.ToString(), stream);
+                try
+                {
+                    ConvertOfRequest(builder.ToString(), stream);
+                }
+                catch
+                {
+                    var msg = "I don't know what you want";
+                    Program.MsgSendAndWrite(msg, stream);
+                }
+              
             }
         }
         catch (Exception ex)
@@ -53,12 +61,12 @@ public class TcpServer
     {
         var r = new Req();
         var re = message.Split("|", StringSplitOptions.RemoveEmptyEntries);
-        if (re.Length == 0 || re[0].Length == 1)
-        {
-            var msg = "I don't know what you want";
-            Program.MsgSendAndWrite(msg, stream);
-            return;
-        }
+        // if (re.Length == 0)
+        // {
+        //     var msg = "I don't know what you want";
+        //     Program.MsgSendAndWrite(msg, stream);
+        //     return;
+        // }
 
         foreach (var variable in re)
         {
