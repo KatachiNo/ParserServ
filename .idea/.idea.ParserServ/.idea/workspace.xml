@@ -4,24 +4,9 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01_[Changes]/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01_[Changes]/ParserServ.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01_[Changes]/ParserServ.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01_[Changes]/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_07_2022_15_01__Changes_.xml" beforeDir="false" />
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Добавил ответ при запросе на старт">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +97,7 @@
       <workItem from="1658005630649" duration="6605000" />
       <workItem from="1658139512573" duration="3341000" />
       <workItem from="1658162794167" duration="2292000" />
-      <workItem from="1658177789146" duration="465000" />
+      <workItem from="1658177789146" duration="1261000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
@@ -296,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658143521902</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Добавил ответ при запросе на старт">
+      <created>1658178416727</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1658178416727</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +321,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="cache" />
     <MESSAGE value="something with gitingnore" />
     <MESSAGE value="alpha v0.2" />
     <MESSAGE value="beta.&#10;- Methods in work condition.&#10;- without error interception" />
@@ -354,7 +345,8 @@
     <MESSAGE value="Добавление функционала для аборта" />
     <MESSAGE value="Ну в общем то готово" />
     <MESSAGE value="добавил возможность добавлять акции.&#10;затем при TakeInfo дается информация о датах" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил возможность добавлять акции.&#10;затем при TakeInfo дается информация о датах" />
+    <MESSAGE value="Добавил ответ при запросе на старт" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил ответ при запросе на старт" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

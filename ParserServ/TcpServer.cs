@@ -76,10 +76,20 @@ public class TcpServer
                 }
                 case "AddStocks":
                 {
-                    new Moex().AddStock(res[1], res[2], res[3]);
-                    var msg = $"Stock was added succesful";
-                    Program.MsgSendAndWrite(msg, stream);
-                    return;
+                    try
+                    {
+                        new Moex().AddStock(res[1], res[2], res[3]);
+                        var msg = $"Stock was added succesful";
+                        Program.MsgSendAndWrite(msg, stream);
+                        return;
+                    }
+                    catch
+                    {
+                        var msg = $"Stock was not added";
+                        Program.MsgSendAndWrite(msg, stream);
+                        return;
+                    }
+                   
                 }
                 default:
                 {
