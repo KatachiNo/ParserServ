@@ -4,9 +4,7 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Более корректное завершение работы.">
-      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
-    </list>
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Правки" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +30,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/902c7234ac8172b6a14385988189f4d260e1831f5f3f40c681be9de3dd842c40/Thread.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParserServ/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TcpServer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TcpServer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -99,7 +98,7 @@
       <workItem from="1658005630649" duration="6605000" />
       <workItem from="1658139512573" duration="3341000" />
       <workItem from="1658162794167" duration="2292000" />
-      <workItem from="1658177789146" duration="2557000" />
+      <workItem from="1658177789146" duration="3414000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
@@ -318,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658180329711</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Правки">
+      <created>1658180375697</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1658180375697</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +357,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="garbage" />
     <MESSAGE value="Resolve little baga with data" />
     <MESSAGE value="Was resolved bug with data (again)" />
     <MESSAGE value="Made TCP great again" />
@@ -376,7 +381,8 @@
     <MESSAGE value="Правка" />
     <MESSAGE value="Фикс непонятных запросов" />
     <MESSAGE value="Более корректное завершение работы." />
-    <option name="LAST_COMMIT_MESSAGE" value="Более корректное завершение работы." />
+    <MESSAGE value="Правки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Правки" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

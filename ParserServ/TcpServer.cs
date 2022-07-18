@@ -126,7 +126,7 @@ public class TcpServer
                 });
                 tsk.Start();
                 Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[1])));
-                var msg = "moex was started";
+                var msg = $"{res[0]} was started";
                 Program.MsgSendAndWrite(msg, stream);
                 break;
             }
