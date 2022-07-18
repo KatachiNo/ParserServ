@@ -117,7 +117,6 @@ public class Req
                 break;
 
             default:
-                Console.WriteLine();
                 Program.MsgSendAndWrite($"Did not find this.. how did you say?  - {name}", stream);
                 Program.RemoveTask(name);
                 break;
