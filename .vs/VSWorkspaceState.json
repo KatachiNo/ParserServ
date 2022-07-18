@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ParserServ"
+    "\\ParserServ",
+    "\\ParserServ\\SqlAccess"
   ],
   "SelectedNode": "\\ParserServ.sln",
   "PreviewInSolutionExplorer": false
