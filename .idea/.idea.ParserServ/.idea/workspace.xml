@@ -4,7 +4,9 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Фикс непонятных запросов" />
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Более корректное завершение работы.">
+      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +99,7 @@
       <workItem from="1658005630649" duration="6605000" />
       <workItem from="1658139512573" duration="3341000" />
       <workItem from="1658162794167" duration="2292000" />
-      <workItem from="1658177789146" duration="2258000" />
+      <workItem from="1658177789146" duration="2557000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
@@ -309,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658179801340</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Более корректное завершение работы.">
+      <created>1658180329711</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1658180329711</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +351,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Was added using" />
     <MESSAGE value="garbage" />
     <MESSAGE value="Resolve little baga with data" />
     <MESSAGE value="Was resolved bug with data (again)" />
@@ -367,7 +375,8 @@
     <MESSAGE value="Правка на запрос для добавление акций" />
     <MESSAGE value="Правка" />
     <MESSAGE value="Фикс непонятных запросов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Фикс непонятных запросов" />
+    <MESSAGE value="Более корректное завершение работы." />
+    <option name="LAST_COMMIT_MESSAGE" value="Более корректное завершение работы." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

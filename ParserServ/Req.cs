@@ -63,20 +63,17 @@ public class Req
         {
             case "moex":
                 CheckDateForWait(dateStart);
-
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new Moex().Start(stream);
                     Console.WriteLine("Sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
-                //new Task(() => RemoveTask(name)).Start();
-                Console.WriteLine("Тотально закончил moex");
+
                 break;
 
             case "mcena":
                 CheckDateForWait(dateStart);
-
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new McenaParser().Start();
@@ -84,29 +81,24 @@ public class Req
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
-               // RemoveTask(name);
-                Console.WriteLine("Тотально закончил mcena");
+
                 break;
 
             case "t_economics":
                 CheckDateForWait(dateStart);
-
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new T_economics().Start();
                     Console.WriteLine("Sleeping. . .");
-
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
-                //RemoveTask(name);
-                Console.WriteLine("Тотально закончил t_economics");
+
                 break;
 
             case "translom":
 
                 CheckDateForWait(dateStart);
-
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new TranslomParse().Start();
@@ -122,7 +114,6 @@ public class Req
         }
     }
 
-    
 
     private void CheckDateForWait(DateTime dateStart)
     {
