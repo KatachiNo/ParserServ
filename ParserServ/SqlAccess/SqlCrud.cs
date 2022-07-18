@@ -6,41 +6,50 @@ namespace ParserServ.SqlAccess
     {
         private readonly string _connectionString;
         private SqliteDataAccess _dataAccess;
+
         public SqlCrud()
         {
             _dataAccess = new SqliteDataAccess();
             _connectionString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
         }
-       
-        public void AddToEconomics(string name,string price)
+
+        public void AddToEconomics(string name, string price)
         {
             DateTime date = DateTime.Now;
-            string sql = " IF NOT EXISTS ( select Id From EconomicsTable Where ProductName=@name) begin insert into EconomicsTable values(@name) end";
-            _dataAccess.SaveData(sql, new {name},_connectionString);
-            sql = "insert into EconomicsParse values((select Id from EconomicsTable where ProductName=@name),@price,@date)";
-            _dataAccess.SaveData(sql, new { name,price,date }, _connectionString);
+            string sql =
+                " IF NOT EXISTS ( select Id From EconomicsTable Where ProductName=@name) begin insert into EconomicsTable values(@name) end";
+            _dataAccess.SaveData(sql, new { name }, _connectionString);
+            sql =
+                "insert into EconomicsParse values((select Id from EconomicsTable where ProductName=@name),@price,@date)";
+            _dataAccess.SaveData(sql, new { name, price, date }, _connectionString);
         }
 
         public void AddInTranslomParse(int AreaID, string Price, string DateTranslom, string DateParse)
         {
-            string sql = "INSERT INTO TranslomParse (AreaID, Price, DateTranslom, DateParse) VALUES (@AreaID, @Price, @DateTranslom, @DateParse)";
-            _dataAccess.SaveData(sql, new {AreaID, Price, DateTranslom, DateParse}, _connectionString);
+            string sql =
+                "INSERT INTO TranslomParse (AreaID, Price, DateTranslom, DateParse) VALUES (@AreaID, @Price, @DateTranslom, @DateParse)";
+            _dataAccess.SaveData(sql, new { AreaID, Price, DateTranslom, DateParse }, _connectionString);
         }
+
         public void AddInTranslom(string MetallType, string AreaType, string AreaName)
         {
-            string sql = "INSERT INTO Translom (MetallType, AreaType, AreaName) VALUES (@MetallType, @AreaType, @AreaName)";
-            _dataAccess.SaveData(sql, new {MetallType, AreaType, AreaName}, _connectionString);
+            string sql =
+                "INSERT INTO Translom (MetallType, AreaType, AreaName) VALUES (@MetallType, @AreaType, @AreaName)";
+            _dataAccess.SaveData(sql, new { MetallType, AreaType, AreaName }, _connectionString);
         }
-        
-        
-        public void AddMcenaData(int id, decimal res, DateTime date)
 
-        public void AddInTranslom(string id, string MetallType, string AreaType, string AreaName, string Price, string Date, string ParseDate)
+
+        public void AddMcenaData(int id, decimal res, DateTime date)
         {
             string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
-            _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
+            _dataAccess.SaveData(query, new { res, id, date }, _connectionString);
         }
-       
-      
+
+        public void AddInTranslom(string id, string MetallType, string AreaType, string AreaName, string Price,
+            string Date, string ParseDate)
+        {
+            string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
+            _dataAccess.SaveData(query, new { res, id, date }, _connectionString);
+        }
     }
 }
