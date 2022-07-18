@@ -52,7 +52,7 @@ public class Moex
                     }
                     catch
                     {
-                        var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
+                        var msg = $"{value1} {value2}/Ошибка. Мосбиржа не передала данные от акции ";
                         Program.MsgSendAndWrite(msg, stream);
                         Console.WriteLine(msg);
                     }

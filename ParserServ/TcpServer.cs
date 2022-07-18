@@ -100,7 +100,7 @@ public class TcpServer
                 var tsk = new Task(() =>
                 {
                     r.SRequest(res[0], DateTime.Parse(res[1]), DateTime.Parse(res[2]),
-                        int.Parse(res[3]),stream);
+                        int.Parse(res[3]), stream);
                 });
                 tsk.Start();
 
@@ -127,10 +127,4 @@ public class TcpServer
             }
         }
     }
-    // public void MsgSendAndWrite(string msg, NetworkStream stream)
-    // {
-    //     var d = Encoding.UTF8.GetBytes(msg);
-    //     stream.Write(d, 0, d.Length);
-    //     Console.WriteLine(msg);
-    // }
 }
