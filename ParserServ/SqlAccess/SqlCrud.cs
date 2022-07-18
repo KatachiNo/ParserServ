@@ -22,7 +22,7 @@ namespace ParserServ.SqlAccess
             _dataAccess.SaveData(sql, new { name,price,date }, _connectionString);
         }
 
-        public void AddInTranslomParse(int AreaID, string Price, string DateTranslom, string DateParse)
+        public void AddInTranslomParse(int AreaID, string Price, string DateTranslom, DateTime DateParse)
         {
             string sql = "INSERT INTO TranslomParse (AreaID, Price, DateTranslom, DateParse) VALUES (@AreaID, @Price, @DateTranslom, @DateParse)";
             _dataAccess.SaveData(sql, new {AreaID, Price, DateTranslom, DateParse}, _connectionString);

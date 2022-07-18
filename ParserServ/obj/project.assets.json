@@ -860,24 +860,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\koeno\\.nuget\\packages\\": {}
+    "C:\\Users\\Регина\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj",
+      "projectUniqueName": "C:\\Users\\Регина\\RiderProjects\\ParserServ\\ParserServ\\ParserServ.csproj",
       "projectName": "ParserServ",
-      "projectPath": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj",
-      "packagesPath": "C:\\Users\\koeno\\.nuget\\packages\\",
-      "outputPath": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\obj\\",
+      "projectPath": "C:\\Users\\Регина\\RiderProjects\\ParserServ\\ParserServ\\ParserServ.csproj",
+      "packagesPath": "C:\\Users\\Регина\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Регина\\RiderProjects\\ParserServ\\ParserServ\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\koeno\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Регина\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -936,7 +938,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
