@@ -53,7 +53,12 @@ public class TcpServer
     {
         var r = new Req();
         var re = message.Split("|", StringSplitOptions.RemoveEmptyEntries);
-        if (re.Length == 0) return;
+        if (re.Length == 0 || re[0].Length == 1)
+        {
+            var msg = "I don't know what you want";
+            Program.MsgSendAndWrite(msg, stream);
+            return;
+        }
 
         foreach (var variable in re)
         {
@@ -89,7 +94,6 @@ public class TcpServer
                         Program.MsgSendAndWrite(msg, stream);
                         return;
                     }
-                   
                 }
                 default:
                 {
@@ -115,7 +119,7 @@ public class TcpServer
                 tsk.Start();
                 Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[1])));
                 var msg = "moex was started";
-                Program.MsgSendAndWrite(msg,stream);
+                Program.MsgSendAndWrite(msg, stream);
                 break;
             }
             case "exists":
