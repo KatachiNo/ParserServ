@@ -105,7 +105,15 @@ public class TcpServer
                 }
                 default:
                 {
-                    CheckStatusAndDo(r.DoStatus(res[0], res[4]), res, stream);
+                    try
+                    {
+                        CheckStatusAndDo(r.DoStatus(res[0], res[4]), res, stream);
+                    }
+                    catch
+                    {
+                        var msg = "I don't know what you want";
+                        Program.MsgSendAndWrite(msg, stream);
+                    }
                     break;
                 }
             }
