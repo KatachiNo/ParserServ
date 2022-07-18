@@ -62,14 +62,13 @@ public class Req
         switch (name)
         {
             case "moex":
-
-
                 CheckDateForWait(dateStart);
 
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new Moex().Start(stream);
                     Console.WriteLine("Sleeping. . .");
+                        //if (Program.TaskStop[name]) break;
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
@@ -84,6 +83,7 @@ public class Req
                 {
                     new McenaParser().Start();
                     Console.WriteLine("Sleeping. . .");
+                    //if (Program.TaskStop[name]) break;
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
@@ -98,6 +98,7 @@ public class Req
                 {
                     new T_economics().Start();
                     Console.WriteLine("Sleeping. . .");
+                    //if (Program.TaskStop[name]) break;
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
