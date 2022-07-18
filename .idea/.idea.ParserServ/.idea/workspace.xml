@@ -4,8 +4,15 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Исправлена ошибка с датой">
-      <change beforePath="$PROJECT_DIR$/ParserServ/MOEX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/MOEX.cs" afterDir="false" />
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Добавление функционала для аборта">
+      <change afterPath="$PROJECT_DIR$/ParserServ/T_economics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Parse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/mcena.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/mcena.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,20 +22,38 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Moex" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7db79a8c1f7541f59ceeb5c06b4a2acbd580/bf/70de14d8/SqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7db79a8c1f7541f59ceeb5c06b4a2acbd580/cb/2ace77ca/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae1f29ab81b34e909584423a3fc6fff7a23898/78/1a15d86d/Thread.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2d2b6050bcc963227b5743c6fc3f4295c9615ad69df6b54e53a3817fc3d793b/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a1ad32abaee44480b66c2c1fcee9628cca92a4cd272eced5781564201180/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/902c7234ac8172b6a14385988189f4d260e1831f5f3f40c681be9de3dd842c40/Thread.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/MOEX.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/MOEX.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Parse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParserServ/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TranslomParse.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,7 +69,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.11818182&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.10297767&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
     &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -89,6 +114,8 @@
       <workItem from="1657617961469" duration="14753000" />
       <workItem from="1657709947927" duration="573000" />
       <workItem from="1657713340367" duration="3035000" />
+      <workItem from="1657885041017" duration="5120000" />
+      <workItem from="1658005630649" duration="6605000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
@@ -223,7 +250,42 @@
       <option name="project" value="LOCAL" />
       <updated>1657716553063</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Мусор">
+      <created>1657803784374</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1657803784375</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Запрет на запуск парсинга одного сайта несколько раз подряд">
+      <created>1657912160893</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1657912160893</updated>
+    </task>
+    <task id="LOCAL-00022" summary="git ignore">
+      <created>1658005930626</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1658005930627</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Руками добавил TranslomParse.cs">
+      <created>1658072149155</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658072149155</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Добавление функционала для аборта">
+      <created>1658078780866</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658078780866</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +304,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Tcp_Server_Part" />
+                        <option value="origin/develop" />
                       </list>
                     </value>
                   </entry>
@@ -275,7 +337,12 @@
     <MESSAGE value="Поправил .gitignore по просьбе Никиты" />
     <MESSAGE value="Добавил в метод AddStock значение Name" />
     <MESSAGE value="Исправлена ошибка с датой" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправлена ошибка с датой" />
+    <MESSAGE value="Мусор" />
+    <MESSAGE value="Запрет на запуск парсинга одного сайта несколько раз подряд" />
+    <MESSAGE value="git ignore" />
+    <MESSAGE value="Руками добавил TranslomParse.cs" />
+    <MESSAGE value="Добавление функционала для аборта" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление функционала для аборта" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -292,6 +359,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ParserServ/Req.cs</url>
+          <line>8</line>
+          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\Req.cs" initialLine="7" containingFunctionPresentation="method 'PreReq'">
+            <startOffsets>
+              <option value="170" />
+            </startOffsets>
+            <endOffsets>
+              <option value="171" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ParserServ/TcpServer.cs</url>
+          <line>52</line>
+          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\TcpServer.cs" initialLine="53" containingFunctionPresentation="method 'WhatDoNext'">
+            <startOffsets>
+              <option value="1190" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1191" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
