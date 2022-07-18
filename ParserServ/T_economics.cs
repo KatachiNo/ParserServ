@@ -29,7 +29,7 @@ namespace ParserServ
                 var name = item.FindElement(By.ClassName("datatable-item-first"));
                 if (Regex.IsMatch(name.Text, pattern, RegexOptions.IgnoreCase))
                 {
-                    var splitedname = name.Text.Split("/Bbl", StringSplitOptions.RemoveEmptyEntries).First();
+                    var splitedname = name.Text;
                     var value = item.FindElement(By.Id("p"));
                     _comparedData.Add(splitedname, value.Text);
                 }

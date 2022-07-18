@@ -11,10 +11,14 @@ namespace ParserServ.SqlAccess
             _dataAccess = new SqliteDataAccess();
             _connectionString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
         }
-        public List<string> GetMoexCompanies()
+       
+        public void AddToEconomics(string name,string price)
         {
-            string sql="Select CompanyName From MoexCompany";
-            return _dataAccess.LoadData<string, dynamic>(sql, new { }, _connectionString);
+            DateTime date = DateTime.Now;
+            string sql = " IF NOT EXISTS ( select Id From EconomicsTable Where ProductName=@name) begin insert into EconomicsTable values(@name) end";
+            _dataAccess.SaveData(sql, new {name},_connectionString);
+            sql = "insert into EconomicsParse values((select Id from EconomicsTable where ProductName=@name),@price,@date)";
+            _dataAccess.SaveData(sql, new { name,price,date }, _connectionString);
         }
 
         public void AddInTranslomParse(int AreaID, string Price, string DateTranslom, string DateParse)
@@ -30,6 +34,8 @@ namespace ParserServ.SqlAccess
         
         
         public void AddMcenaData(int id, decimal res, DateTime date)
+
+        public void AddInTranslom(string id, string MetallType, string AreaType, string AreaName, string Price, string Date, string ParseDate)
         {
             string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
             _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
@@ -40,6 +46,8 @@ namespace ParserServ.SqlAccess
             DateTime date = DateTime.Now;
             string sql = " insert into TradingeconomicsTable values(@name,@price,@date);";
             _dataAccess.SaveData(sql, new {name,price,date},_connectionString);
+            string sql = " insert into Translom values(@id,@MetallType,@AreaType,@AreaName,@Price,@Date,@ParseDate);";
+            _dataAccess.SaveData(sql, new { id, MetallType, AreaType, AreaName, Price, Date, ParseDate}, _connectionString);
         }
     }
 }
