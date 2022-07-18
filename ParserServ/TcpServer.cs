@@ -62,16 +62,23 @@ public class TcpServer
             {
                 case "TakeInfo":
                 {
-                    var DoResult = r.DoStatus(res[1], "start");
+                    var DoResult = r.DoStatus(res[1], "status");
                     var msg = $"{res[1]} {DoResult}";
-                    MsgSendAndWrite(msg, stream);
+                    Program.MsgSendAndWrite(msg, stream);
                     return;
                 }
                 case "WannaStop":
                 {
                     var DoResult = r.DoStatus(res[1], "stop");
                     var msg = $"{res[1]} {DoResult}";
-                    MsgSendAndWrite(msg, stream);
+                    Program.MsgSendAndWrite(msg, stream);
+                    return;
+                }
+                case "AddStocks":
+                {
+                    new Moex().AddStock(res[1], res[2], res[3]);
+                    var msg = $"Stock was added succesful";
+                    Program.MsgSendAndWrite(msg, stream);
                     return;
                 }
                 default:
@@ -93,37 +100,37 @@ public class TcpServer
                 var tsk = new Task(() =>
                 {
                     r.SRequest(res[0], DateTime.Parse(res[1]), DateTime.Parse(res[2]),
-                        int.Parse(res[3]));
+                        int.Parse(res[3]),stream);
                 });
                 tsk.Start();
-                Program.Tasks.Add(res[0], tsk);
+
+                Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[1])));
                 break;
             }
             case "exists":
             {
                 var msg = $"Task {res[0]} already exists ";
-                MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite(msg, stream);
                 break;
             }
             case "aborted":
             {
                 var msg = $"Task {res[0]} aborted";
-                MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite(msg, stream);
                 break;
             }
             default:
             {
                 var msg = $"Invalid start";
-                MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite(msg, stream);
                 break;
             }
         }
     }
-
-    private void MsgSendAndWrite(string msg, NetworkStream stream)
-    {
-        var d = Encoding.UTF8.GetBytes(msg);
-        stream.Write(d, 0, d.Length);
-        Console.WriteLine(msg);
-    }
+    // public void MsgSendAndWrite(string msg, NetworkStream stream)
+    // {
+    //     var d = Encoding.UTF8.GetBytes(msg);
+    //     stream.Write(d, 0, d.Length);
+    //     Console.WriteLine(msg);
+    // }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Net.Sockets;
+using System.Xml.Linq;
 using OpenQA.Selenium.DevTools.V103.Page;
 
 namespace ParserServ;
@@ -13,7 +14,7 @@ public class Req
             {
                 foreach (var variable in Program.Tasks)
                 {
-                    if (variable.Key == name)
+                    if (variable.Item1 == name)
                     {
                         return "exists";
                     }
@@ -25,7 +26,7 @@ public class Req
             {
                 foreach (var variable in Program.Tasks)
                 {
-                    if (variable.Key == name)
+                    if (variable.Item1 == name)
                     {
                         Program.TaskStop[name] = true;
                         return "aborted";
@@ -33,6 +34,18 @@ public class Req
                 }
 
                 return "there is no working thread";
+            }
+            case "status":
+            {
+                foreach (var variable in Program.Tasks)
+                {
+                    if (variable.Item1 == name)
+                    {
+                        return $"exists/Name={variable.Item1}/DStart={variable.Item3}/DStart={variable.Item4}";
+                    }
+                }
+
+                return "not exists";
             }
             default:
                 Console.WriteLine("Invalid status");
@@ -43,7 +56,7 @@ public class Req
     }
 
 
-    public void SRequest(string name, DateTime dateStart, DateTime dateEnd, int intervalMs)
+    public void SRequest(string name, DateTime dateStart, DateTime dateEnd, int intervalMs,NetworkStream stream)
     {
         Program.TaskStop[name] = false;
         switch (name)
@@ -55,11 +68,12 @@ public class Req
 
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
-                    new Moex().Start();
+                    new Moex().Start(stream);
                     Console.WriteLine("Sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
+                RemoveTask(name);
                 Console.WriteLine("Закончил moex");
                 break;
 
@@ -72,19 +86,22 @@ public class Req
                     Console.WriteLine("Sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
+
+                RemoveTask(name);
                 Console.WriteLine("Закончил mcena");
                 break;
 
             case "t_economics":
                 CheckDateForWait(dateStart);
-                
+
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new T_economics().Start();
                     Console.WriteLine("Sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
-                
+
+                RemoveTask(name);
                 Console.WriteLine("Закончил t_economics");
                 break;
 
@@ -104,6 +121,18 @@ public class Req
             default:
                 Console.WriteLine($"Did not find this.. how did you say?  - {name}");
                 break;
+        }
+    }
+
+    private void RemoveTask(string name)
+    {
+        for (var i = 0; i < Program.Tasks.Count; i++)
+        {
+            if (Program.Tasks[i].Item1 == name)
+            {
+                Program.Tasks.RemoveAt(i);
+                return;
+            }
         }
     }
 

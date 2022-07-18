@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Net.Sockets;
 using System.Xml.Linq;
 
 namespace ParserServ;
@@ -20,12 +21,8 @@ public class Moex
     }
 
 
-    public void Start()
-    {   //DateTime dateStart, DateTime dateEnd, int intervalMs
-        // Thread.Sleep((int)DateTime.Now.Subtract(dateStart).TotalMilliseconds);
-        //
-        // while (DateTime.Now < dateEnd)
-        // {
+    public void Start(NetworkStream stream)
+    {
         using (var connectionReading =
                new SqlConnection(
                    @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
@@ -56,15 +53,12 @@ public class Moex
                     catch
                     {
                         var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
+                        Program.MsgSendAndWrite(msg, stream);
                         Console.WriteLine(msg);
                     }
                 }
             }
         }
-
-        //     Console.WriteLine("Sleeping. . .");
-        //     Thread.Sleep(intervalMs); // 1 min = 60000 ms
-        // }
     }
 
 
