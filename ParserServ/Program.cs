@@ -59,5 +59,18 @@ namespace ParserServ
             stream.Write(d, 0, d.Length);
             Console.WriteLine(msg);
         }
+        
+        public static void RemoveTask(string name)
+        {
+            for (var i = 0; i < Program.Tasks.Count; i++)
+            {
+                if (Program.Tasks[i].Item1 == name)
+                {
+                    Program.Tasks.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+        
     }
 }

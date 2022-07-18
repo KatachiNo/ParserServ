@@ -84,7 +84,7 @@ public class TcpServer
                     var DoResult = r.DoStatus(res[1], "stop");
                     var msg = $"{res[1]} {DoResult}";
                     Program.MsgSendAndWrite(msg, stream);
-                    RemoveTask(res[1]);
+                    Program.RemoveTask(res[1]);
                     return;
                 }
                 case "AddStocks":
@@ -126,7 +126,7 @@ public class TcpServer
                 });
                 tsk.Start();
                 Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[1])));
-                
+
                 break;
             }
             case "exists":
@@ -150,15 +150,5 @@ public class TcpServer
         }
     }
 
-    private void RemoveTask(string name)
-    {
-        for (var i = 0; i < Program.Tasks.Count; i++)
-        {
-            if (Program.Tasks[i].Item1 == name)
-            {
-                Program.Tasks.RemoveAt(i);
-                return;
-            }
-        }
-    }
+    
 }
