@@ -62,6 +62,9 @@ public class Req
         switch (name)
         {
             case "moex":
+                
+                Program.MsgSendAndWrite($"{name} was started", stream);
+                
                 CheckDateForWait(dateStart);
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
@@ -73,6 +76,8 @@ public class Req
                 break;
 
             case "mcena":
+                Program.MsgSendAndWrite($"{name} was started", stream);
+                
                 CheckDateForWait(dateStart);
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
@@ -85,6 +90,8 @@ public class Req
                 break;
 
             case "t_economics":
+                Program.MsgSendAndWrite($"{name} was started", stream);
+                
                 CheckDateForWait(dateStart);
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
@@ -97,6 +104,7 @@ public class Req
                 break;
 
             case "translom":
+                Program.MsgSendAndWrite($"{name} was started", stream);
 
                 CheckDateForWait(dateStart);
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
