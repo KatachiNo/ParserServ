@@ -91,9 +91,7 @@ public class TcpServer
                 {
                     try
                     {
-                        new Moex().AddStock(res[1], res[2], res[3]);
-                        var msg = $"Stock was added succesful";
-                        Program.MsgSendAndWrite(msg, stream);
+                        new Moex().AddStock(res[1], res[2], res[3], stream);
                         return;
                     }
                     catch
@@ -114,6 +112,7 @@ public class TcpServer
                         var msg = "I don't know what you want";
                         Program.MsgSendAndWrite(msg, stream);
                     }
+
                     break;
                 }
             }
@@ -157,6 +156,4 @@ public class TcpServer
             }
         }
     }
-
-    
 }

@@ -8,8 +8,18 @@ namespace ParserServ;
 
 public class Moex
 {
-    public void AddStock(string secID, string board, string name)
+    public void AddStock(string secID, string board, string name, NetworkStream stream)
     {
+        try
+        {
+            ParseProcess(secID, board);
+        }
+        catch
+        {
+            Program.MsgSendAndWrite($"Stock was not added", stream);
+            return;
+        }
+
         var connection =
             new SqlConnection(
                 @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
@@ -18,6 +28,9 @@ public class Moex
                 connection)
             .ExecuteNonQuery();
         connection.Close();
+
+
+        Program.MsgSendAndWrite($"Stock was added succesful", stream);
     }
 
 
