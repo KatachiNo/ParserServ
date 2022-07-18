@@ -14,7 +14,7 @@ namespace ParserServ
         {
             { "moex", false },
             { "mcena", false },
-            { "coal", false },
+            { "t_economics", false },
             { "translom", false }
         };
 
