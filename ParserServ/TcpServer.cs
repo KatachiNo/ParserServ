@@ -43,7 +43,6 @@ public class TcpServer
                     var msg = "I don't know what you want";
                     Program.MsgSendAndWrite(msg, stream);
                 }
-              
             }
         }
         catch (Exception ex)
@@ -85,6 +84,7 @@ public class TcpServer
                     var DoResult = r.DoStatus(res[1], "stop");
                     var msg = $"{res[1]} {DoResult}";
                     Program.MsgSendAndWrite(msg, stream);
+                    RemoveTask(res[1]);
                     return;
                 }
                 case "AddStocks":
@@ -147,6 +147,18 @@ public class TcpServer
                 var msg = $"Invalid start";
                 Program.MsgSendAndWrite(msg, stream);
                 break;
+            }
+        }
+    }
+
+    private void RemoveTask(string name)
+    {
+        for (var i = 0; i < Program.Tasks.Count; i++)
+        {
+            if (Program.Tasks[i].Item1 == name)
+            {
+                Program.Tasks.RemoveAt(i);
+                return;
             }
         }
     }

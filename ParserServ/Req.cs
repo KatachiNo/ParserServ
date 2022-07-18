@@ -56,7 +56,7 @@ public class Req
     }
 
 
-    public void SRequest(string name, DateTime dateStart, DateTime dateEnd, int intervalMs,NetworkStream stream)
+    public void SRequest(string name, DateTime dateStart, DateTime dateEnd, int intervalMs, NetworkStream stream)
     {
         Program.TaskStop[name] = false;
         switch (name)
@@ -68,12 +68,10 @@ public class Req
                 {
                     new Moex().Start(stream);
                     Console.WriteLine("Sleeping. . .");
-                        //if (Program.TaskStop[name]) break;
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
-
-                RemoveTask(name);
-                Console.WriteLine("Закончил moex");
+                //new Task(() => RemoveTask(name)).Start();
+                Console.WriteLine("Тотально закончил moex");
                 break;
 
             case "mcena":
@@ -83,12 +81,11 @@ public class Req
                 {
                     new McenaParser().Start();
                     Console.WriteLine("Sleeping. . .");
-                    //if (Program.TaskStop[name]) break;
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
-                RemoveTask(name);
-                Console.WriteLine("Закончил mcena");
+               // RemoveTask(name);
+                Console.WriteLine("Тотально закончил mcena");
                 break;
 
             case "t_economics":
@@ -98,13 +95,12 @@ public class Req
                 {
                     new T_economics().Start();
                     Console.WriteLine("Sleeping. . .");
-                    //if (Program.TaskStop[name]) break;
+
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
-                    
                 }
 
-                RemoveTask(name);
-                Console.WriteLine("Закончил t_economics");
+                //RemoveTask(name);
+                Console.WriteLine("Тотально закончил t_economics");
                 break;
 
             case "translom":
@@ -126,17 +122,7 @@ public class Req
         }
     }
 
-    private void RemoveTask(string name)
-    {
-        for (var i = 0; i < Program.Tasks.Count; i++)
-        {
-            if (Program.Tasks[i].Item1 == name)
-            {
-                Program.Tasks.RemoveAt(i);
-                return;
-            }
-        }
-    }
+    
 
     private void CheckDateForWait(DateTime dateStart)
     {
