@@ -4,15 +4,10 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Добавление функционала для аборта">
-      <change afterPath="$PROJECT_DIR$/ParserServ/T_economics.cs" afterDir="false" />
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Mini fix">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/Parse.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/mcena.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/mcena.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,22 +33,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a1ad32abaee44480b66c2c1fcee9628cca92a4cd272eced5781564201180/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/902c7234ac8172b6a14385988189f4d260e1831f5f3f40c681be9de3dd842c40/Thread.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Parse.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/MOEX.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParserServ/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/Req.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/SqlAccess/SqlCrud.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TranslomParse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/TcpServer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,6 +99,10 @@
       <workItem from="1657713340367" duration="3035000" />
       <workItem from="1657885041017" duration="5120000" />
       <workItem from="1658005630649" duration="6605000" />
+      <workItem from="1658139512573" duration="3341000" />
+      <workItem from="1658162794167" duration="2292000" />
+      <workItem from="1658177789146" duration="7384000" />
+      <workItem from="1658227028755" duration="5106000" />
     </task>
     <task id="LOCAL-00001" summary="/">
       <created>1657429575660</created>
@@ -285,7 +272,154 @@
       <option name="project" value="LOCAL" />
       <updated>1658078780866</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Ну в общем то готово">
+      <created>1658087912612</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1658087912612</updated>
+    </task>
+    <task id="LOCAL-00026" summary="добавил возможность добавлять акции.&#10;затем при TakeInfo дается информация о датах">
+      <created>1658143521902</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1658143521902</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Добавил ответ при запросе на старт">
+      <created>1658178416727</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1658178416727</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Правка на запрос для добавление акций">
+      <created>1658179302879</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1658179302879</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Правка">
+      <created>1658179569292</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1658179569292</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Фикс непонятных запросов">
+      <created>1658179801340</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1658179801340</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Более корректное завершение работы.">
+      <created>1658180329711</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1658180329711</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Правки">
+      <created>1658180375697</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1658180375697</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Правка сообщения при запуске">
+      <created>1658181741643</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1658181741643</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Мелкая правка">
+      <created>1658182166070</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1658182166070</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Опять мелкие исправления">
+      <created>1658182254306</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1658182254306</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Исправления">
+      <created>1658182408193</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1658182408193</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Правки">
+      <created>1658182551028</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1658182551028</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Исправление">
+      <created>1658183086745</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1658183086745</updated>
+    </task>
+    <task id="LOCAL-00039" summary="не критичные">
+      <created>1658183151667</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1658183151667</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Обернул в try catch CheckStatusAndDo">
+      <created>1658183490292</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1658183490292</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Добавил проверку на мусор при добавлении акций">
+      <created>1658183780001</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1658183780001</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Расширил коммент">
+      <created>1658183928306</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1658183928306</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Добавил команду удалить акцию">
+      <created>1658229425073</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1658229425073</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fix TakeInfo end Data">
+      <created>1658245559460</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1658245559460</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Mini fix">
+      <created>1658245705259</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1658245705259</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,75 +452,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="/" />
-    <MESSAGE value="cache" />
-    <MESSAGE value="something with gitingnore" />
-    <MESSAGE value="alpha v0.2" />
-    <MESSAGE value="beta.&#10;- Methods in work condition.&#10;- without error interception" />
-    <MESSAGE value="Was added using" />
-    <MESSAGE value="garbage" />
-    <MESSAGE value="Resolve little baga with data" />
-    <MESSAGE value="Was resolved bug with data (again)" />
-    <MESSAGE value="Made TCP great again" />
-    <MESSAGE value="new code" />
-    <MESSAGE value="to comment" />
-    <MESSAGE value="Рабочая схема метанит" />
-    <MESSAGE value="Merge with tcp_server_part" />
-    <MESSAGE value="Удалил мусор" />
-    <MESSAGE value="Объеденил ветку Moex и Tcp_Server_Part" />
-    <MESSAGE value="Поправил .gitignore по просьбе Никиты" />
-    <MESSAGE value="Добавил в метод AddStock значение Name" />
-    <MESSAGE value="Исправлена ошибка с датой" />
     <MESSAGE value="Мусор" />
     <MESSAGE value="Запрет на запуск парсинга одного сайта несколько раз подряд" />
     <MESSAGE value="git ignore" />
     <MESSAGE value="Руками добавил TranslomParse.cs" />
     <MESSAGE value="Добавление функционала для аборта" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление функционала для аборта" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ParserServ/MOEX.cs</url>
-          <line>40</line>
-          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\MOEX.cs" initialLine="40" containingFunctionPresentation="method 'Start'">
-            <startOffsets>
-              <option value="1530" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1580" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ParserServ/Req.cs</url>
-          <line>8</line>
-          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\Req.cs" initialLine="7" containingFunctionPresentation="method 'PreReq'">
-            <startOffsets>
-              <option value="170" />
-            </startOffsets>
-            <endOffsets>
-              <option value="171" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ParserServ/TcpServer.cs</url>
-          <line>52</line>
-          <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\TcpServer.cs" initialLine="53" containingFunctionPresentation="method 'WhatDoNext'">
-            <startOffsets>
-              <option value="1190" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1191" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Ну в общем то готово" />
+    <MESSAGE value="добавил возможность добавлять акции.&#10;затем при TakeInfo дается информация о датах" />
+    <MESSAGE value="Добавил ответ при запросе на старт" />
+    <MESSAGE value="Правка на запрос для добавление акций" />
+    <MESSAGE value="Правка" />
+    <MESSAGE value="Фикс непонятных запросов" />
+    <MESSAGE value="Более корректное завершение работы." />
+    <MESSAGE value="Правка сообщения при запуске" />
+    <MESSAGE value="Мелкая правка" />
+    <MESSAGE value="Опять мелкие исправления" />
+    <MESSAGE value="Исправления" />
+    <MESSAGE value="Правки" />
+    <MESSAGE value="Исправление" />
+    <MESSAGE value="не критичные" />
+    <MESSAGE value="Обернул в try catch CheckStatusAndDo" />
+    <MESSAGE value="Добавил проверку на мусор при добавлении акций" />
+    <MESSAGE value="Расширил коммент" />
+    <MESSAGE value="Добавил команду удалить акцию" />
+    <MESSAGE value="fix TakeInfo end Data" />
+    <MESSAGE value="Mini fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mini fix" />
   </component>
 </project>

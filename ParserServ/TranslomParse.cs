@@ -41,25 +41,25 @@ public class TranslomParse
         {
             if (i < 4)
             {
-                translist.Add(new List<string>{"Лом черных металлов", "NULL", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Лом черных металлов", "NULL", areas[i], prices[i], data[0]});
             }
             if ((i>=4)&&(i<13))
             {
-                translist.Add(new List<string>{"Лом черных металлов", "Внутренний рынок", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Лом черных металлов", "Внутренний рынок", areas[i], prices[i], data[0]});
             }
             if ((i > 13)&&(i<16))
             {
-                translist.Add(new List<string>{"Лом черных металлов", "Внешний рынок", areas[i], prices[i], data[0], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Лом черных металлов", "Внешний рынок", areas[i], prices[i], data[0]});
             }
 
             if (i == 16)
             {
-                translist.Add(new List<string>{"Алюминий смешанный", "Внутренний рынок", "FCA", prices[i], data[1], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Алюминий смешанный", "Внутренний рынок", "FCA", prices[i], data[1]});
             }
 
             if (i == 18)
             {
-                translist.Add(new List<string>{"Медь 3 сорт", "Внутренний рынок", "FCA", prices[i], data[2], DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")});
+                translist.Add(new List<string>{"Медь 3 сорт", "Внутренний рынок", "FCA", prices[i], data[2]});
             }
         }
         return translist;
@@ -80,7 +80,7 @@ public class TranslomParse
         List<List<string>> t = GetFromSite();
         for (int i = 0; i < t.Count; i++)
         {
-            sql.AddInTranslomParse((i+1), t[i][3], t[i][4], t[i][5]);
+            sql.AddInTranslomParse((i+1), t[i][3], t[i][4], DateTime.Now);
         }
     }
 }

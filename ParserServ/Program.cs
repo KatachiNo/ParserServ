@@ -1,5 +1,6 @@
 using System;
 using System.Net.Sockets;
+using System.Text;
 
 
 namespace ParserServ
@@ -7,13 +8,13 @@ namespace ParserServ
     //Сообщение будущему я: Протестировать аборт, добавить возможность нескольких сообщений из одного потока
     internal class Program
     {
-        public static Dictionary<string, Task> Tasks = new();
+        public static List<(string, Task, DateTime, DateTime, int)> Tasks = new();
 
         public static readonly Dictionary<string, bool> TaskStop = new()
         {
             { "moex", false },
             { "mcena", false },
-            { "coal", false },
+            { "t_economics", false },
             { "translom", false }
         };
 
@@ -51,5 +52,25 @@ namespace ParserServ
             }
             //Граница за которую лучше не заходить. Далее... безопасная зона. Выше -> опасная зона. НЕ ТРОГАТЬ.
         }
+        
+        public static void MsgSendAndWrite(string msg, NetworkStream stream)
+        {
+            var d = Encoding.UTF8.GetBytes(msg);
+            stream.Write(d, 0, d.Length);
+            Console.WriteLine(msg);
+        }
+        
+        public static void RemoveTask(string name)
+        {
+            for (var i = 0; i < Tasks.Count; i++)
+            {
+                if (Tasks[i].Item1 == name)
+                {
+                    Tasks.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+        
     }
 }

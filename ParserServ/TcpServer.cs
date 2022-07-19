@@ -34,8 +34,15 @@ public class TcpServer
                     builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
                 } while (stream.DataAvailable);
 
-
-                ConvertOfRequest(builder.ToString(), stream);
+                try
+                {
+                    ConvertOfRequest(builder.ToString(), stream);
+                }
+                catch
+                {
+                    var msg = "I don't know what you want";
+                    Program.MsgSendAndWrite(msg, stream);
+                }
             }
         }
         catch (Exception ex)
@@ -53,7 +60,6 @@ public class TcpServer
     {
         var r = new Req();
         var re = message.Split("|", StringSplitOptions.RemoveEmptyEntries);
-        if (re.Length == 0) return;
 
         foreach (var variable in re)
         {
@@ -62,21 +68,50 @@ public class TcpServer
             {
                 case "TakeInfo":
                 {
-                    var DoResult = r.DoStatus(res[1], "start");
+                    var DoResult = r.DoStatus(res[1], "status");
                     var msg = $"{res[1]} {DoResult}";
-                    MsgSendAndWrite(msg, stream);
+                    Program.MsgSendAndWrite(msg, stream);
                     return;
                 }
                 case "WannaStop":
                 {
                     var DoResult = r.DoStatus(res[1], "stop");
                     var msg = $"{res[1]} {DoResult}";
-                    MsgSendAndWrite(msg, stream);
+                    Program.MsgSendAndWrite(msg, stream);
+                    Program.RemoveTask(res[1]);
                     return;
+                }
+                case "AddStocks":
+                {
+                    try
+                    {
+                        new Moex().AddStock(res[1], res[2], res[3], stream);
+                        return;
+                    }
+                    catch
+                    {
+                        var msg = $"Stock was not added";
+                        Program.MsgSendAndWrite(msg, stream);
+                        return;
+                    }
+                }
+                case "DeleteSocks":
+                {
+                    new Moex().DeleteStock(res[1], stream);
+                    break;
                 }
                 default:
                 {
-                    CheckStatusAndDo(r.DoStatus(res[0], res[4]), res, stream);
+                    try
+                    {
+                        CheckStatusAndDo(r.DoStatus(res[0], res[4]), res, stream);
+                    }
+                    catch
+                    {
+                        var msg = "I don't know what you want";
+                        Program.MsgSendAndWrite(msg, stream);
+                    }
+
                     break;
                 }
             }
@@ -93,37 +128,31 @@ public class TcpServer
                 var tsk = new Task(() =>
                 {
                     r.SRequest(res[0], DateTime.Parse(res[1]), DateTime.Parse(res[2]),
-                        int.Parse(res[3]));
+                        int.Parse(res[3]), stream);
                 });
                 tsk.Start();
-                Program.Tasks.Add(res[0], tsk);
+                Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[2]), int.Parse(res[3])));
+
                 break;
             }
             case "exists":
             {
                 var msg = $"Task {res[0]} already exists ";
-                MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite(msg, stream);
                 break;
             }
             case "aborted":
             {
                 var msg = $"Task {res[0]} aborted";
-                MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite(msg, stream);
                 break;
             }
             default:
             {
                 var msg = $"Invalid start";
-                MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite(msg, stream);
                 break;
             }
         }
-    }
-
-    private void MsgSendAndWrite(string msg, NetworkStream stream)
-    {
-        var d = Encoding.UTF8.GetBytes(msg);
-        stream.Write(d, 0, d.Length);
-        Console.WriteLine(msg);
     }
 }

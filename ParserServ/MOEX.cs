@@ -1,14 +1,25 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Net.Sockets;
 using System.Xml.Linq;
 
 namespace ParserServ;
 
 public class Moex
 {
-    public void AddStock(string secID, string board, string name)
+    public void AddStock(string secID, string board, string name, NetworkStream stream)
     {
+        try
+        {
+            ParseProcess(secID, board);
+        }
+        catch
+        {
+            Program.MsgSendAndWrite($"Stock was not added since Moex does not give information about it", stream);
+            return;
+        }
+
         var connection =
             new SqlConnection(
                 @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
@@ -17,15 +28,42 @@ public class Moex
                 connection)
             .ExecuteNonQuery();
         connection.Close();
+
+
+        Program.MsgSendAndWrite($"Stock was added succesful", stream);
     }
 
+    public void DeleteStock(string secID, NetworkStream stream)
+    {
+        using (var connectionReading =
+               new SqlConnection(
+                   @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+        {
+            using (var connectionWriting =
+                   new SqlConnection(
+                       @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+            {
+                connectionReading.Open();
+                connectionWriting.Open();
+                var reader = new SqlCommand("SELECT * FROM Moex", connectionReading).ExecuteReader();
+                while (reader.Read())
+                {
+                    var value1 = reader.GetValue(1).ToString()?.Trim();
+                    if (value1 == secID)
+                    {
+                        new SqlCommand($@"Delete from Moex where SecID = '{secID}'", connectionWriting)
+                            .ExecuteNonQuery();
+                        Program.MsgSendAndWrite($"Stock was removed succesful", stream);
+                        break;
+                    }
+                    Program.MsgSendAndWrite($"Stock was not removed. {secID} was not found in moex table", stream);
+                }
+            }
+        }
+    }
 
-    public void Start()
-    {   //DateTime dateStart, DateTime dateEnd, int intervalMs
-        // Thread.Sleep((int)DateTime.Now.Subtract(dateStart).TotalMilliseconds);
-        //
-        // while (DateTime.Now < dateEnd)
-        // {
+    public void Start(NetworkStream stream)
+    {
         using (var connectionReading =
                new SqlConnection(
                    @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
@@ -46,25 +84,22 @@ public class Moex
                     {
                         var a = ParseProcess(value1, value2);
 
-                        var command =
-                            new SqlCommand(
-                                    $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
+
+                        new SqlCommand(
+                                $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
                             VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
-                                    connectionWriting)
-                                .ExecuteNonQuery();
+                                connectionWriting)
+                            .ExecuteNonQuery();
                     }
                     catch
                     {
-                        var msg = $"Ошибка. Мосбиржа не передала данные от акции {value1} {value2}";
+                        var msg = $"{value1} {value2}/Ошибка. Мосбиржа не передала данные от акции ";
+                        Program.MsgSendAndWrite(msg, stream);
                         Console.WriteLine(msg);
                     }
                 }
             }
         }
-
-        //     Console.WriteLine("Sleeping. . .");
-        //     Thread.Sleep(intervalMs); // 1 min = 60000 ms
-        // }
     }
 
 
