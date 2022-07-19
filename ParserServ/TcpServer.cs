@@ -101,6 +101,11 @@ public class TcpServer
                         return;
                     }
                 }
+                case "DeleteSocks":
+                {
+                    new Moex().DeleteStock(res[1], stream);
+                    break;
+                }
                 default:
                 {
                     try

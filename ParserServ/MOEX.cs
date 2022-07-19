@@ -33,6 +33,34 @@ public class Moex
         Program.MsgSendAndWrite($"Stock was added succesful", stream);
     }
 
+    public void DeleteStock(string secID, NetworkStream stream)
+    {
+        using (var connectionReading =
+               new SqlConnection(
+                   @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+        {
+            using (var connectionWriting =
+                   new SqlConnection(
+                       @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+            {
+                connectionReading.Open();
+                connectionWriting.Open();
+                var reader = new SqlCommand("SELECT * FROM Moex", connectionReading).ExecuteReader();
+                while (reader.Read())
+                {
+                    var value1 = reader.GetValue(1).ToString()?.Trim();
+                    if (value1 == secID)
+                    {
+                        new SqlCommand($@"Delete from Moex where SecID = '{secID}'", connectionWriting)
+                            .ExecuteNonQuery();
+                        Program.MsgSendAndWrite($"Stock was removed succesful", stream);
+                        break;
+                    }
+                    Program.MsgSendAndWrite($"Stock was not removed. {secID} was not found in moex table", stream);
+                }
+            }
+        }
+    }
 
     public void Start(NetworkStream stream)
     {
@@ -56,12 +84,12 @@ public class Moex
                     {
                         var a = ParseProcess(value1, value2);
 
-                        var command =
-                            new SqlCommand(
-                                    $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
+
+                        new SqlCommand(
+                                $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
                             VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
-                                    connectionWriting)
-                                .ExecuteNonQuery();
+                                connectionWriting)
+                            .ExecuteNonQuery();
                     }
                     catch
                     {
