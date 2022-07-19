@@ -41,7 +41,8 @@ public class Req
                 {
                     if (variable.Item1 == name)
                     {
-                        return $"exists/Name={variable.Item1}/DStart={variable.Item3}/DEnd={variable.Item4}";
+                        return
+                            $"exists/Name={variable.Item1}/DStart={variable.Item3}/DEnd={variable.Item4}/Ms={variable.Item5}";
                     }
                 }
 
