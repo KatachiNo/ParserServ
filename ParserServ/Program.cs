@@ -62,11 +62,11 @@ namespace ParserServ
         
         public static void RemoveTask(string name)
         {
-            for (var i = 0; i < Program.Tasks.Count; i++)
+            for (var i = 0; i < Tasks.Count; i++)
             {
-                if (Program.Tasks[i].Item1 == name)
+                if (Tasks[i].Item1 == name)
                 {
-                    Program.Tasks.RemoveAt(i);
+                    Tasks.RemoveAt(i);
                     return;
                 }
             }
