@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Net.Sockets;
 
@@ -7,7 +6,6 @@ namespace ParserServ;
 public class TcpServer
 {
     public TcpClient client;
-
 
     public TcpServer(TcpClient tcpClient)
     {
@@ -40,8 +38,7 @@ public class TcpServer
                 }
                 catch
                 {
-                    var msg = "I don't know what you want";
-                    Program.MsgSendAndWrite(msg, stream);
+                    Program.MsgSendAndWrite("I don't know what you want", stream);
                 }
             }
         }
@@ -69,15 +66,13 @@ public class TcpServer
                 case "TakeInfo":
                 {
                     var DoResult = r.DoStatus(res[1], "status");
-                    var msg = $"{res[1]} {DoResult}";
-                    Program.MsgSendAndWrite(msg, stream);
+                    Program.MsgSendAndWrite($"{res[1]} {DoResult}", stream);
                     return;
                 }
                 case "WannaStop":
                 {
                     var DoResult = r.DoStatus(res[1], "stop");
-                    var msg = $"{res[1]} {DoResult}";
-                    Program.MsgSendAndWrite(msg, stream);
+                    Program.MsgSendAndWrite($"{res[1]} {DoResult}", stream);
                     Program.RemoveTask(res[1]);
                     return;
                 }
@@ -90,8 +85,7 @@ public class TcpServer
                     }
                     catch
                     {
-                        var msg = $"Stock was not added";
-                        Program.MsgSendAndWrite(msg, stream);
+                        Program.MsgSendAndWrite("Stock was not added", stream);
                         return;
                     }
                 }
@@ -108,8 +102,7 @@ public class TcpServer
                     }
                     catch
                     {
-                        var msg = "I don't know what you want";
-                        Program.MsgSendAndWrite(msg, stream);
+                        Program.MsgSendAndWrite("I don't know what you want", stream);
                     }
 
                     break;
@@ -120,14 +113,13 @@ public class TcpServer
 
     private void CheckStatusAndDo(string retReq, string[] res, NetworkStream stream)
     {
-        var r = new Req();
         switch (retReq)
         {
             case "not exists":
             {
                 var tsk = new Task(() =>
                 {
-                    r.SRequest(res[0], DateTime.Parse(res[1]), DateTime.Parse(res[2]),
+                    new Req().SRequest(res[0], DateTime.Parse(res[1]), DateTime.Parse(res[2]),
                         int.Parse(res[3]), stream);
                 });
                 tsk.Start();
@@ -137,20 +129,17 @@ public class TcpServer
             }
             case "exists":
             {
-                var msg = $"Task {res[0]} already exists ";
-                Program.MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite($"Task {res[0]} already exists", stream);
                 break;
             }
             case "aborted":
             {
-                var msg = $"Task {res[0]} aborted";
-                Program.MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite($"Task {res[0]} aborted", stream);
                 break;
             }
             default:
             {
-                var msg = $"Invalid start";
-                Program.MsgSendAndWrite(msg, stream);
+                Program.MsgSendAndWrite("Invalid start", stream);
                 break;
             }
         }

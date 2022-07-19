@@ -13,15 +13,15 @@ public class McenaParser
         sql = new SqlCrud();
         urls = new List<string[]>()
         {
-            new string[] { "1", "https://www.mcena.ru/metalloprokat/armatura" },
-            new string[] { "2", "https://www.mcena.ru/metalloprokat/katanka" },
-            new string[] { "1", "https://www.mcena.ru/metalloprokat/kvadrat" },
-            new string[] { "1", "https://www.mcena.ru/metalloprokat/krug" },
-            new string[] { "1", "https://www.mcena.ru/metalloprokat/list" },
-            new string[] { "2", "https://www.mcena.ru/metalloprokat/list" },
-            new string[] { "3", "https://www.mcena.ru/metalloprokat/list" },
-            new string[] { "4", "https://www.mcena.ru/metalloprokat/list" },
-            new string[] { "5", "https://www.mcena.ru/metalloprokat/list" }
+            new[] { "1", "https://www.mcena.ru/metalloprokat/armatura" },
+            new[] { "2", "https://www.mcena.ru/metalloprokat/katanka" },
+            new[] { "1", "https://www.mcena.ru/metalloprokat/kvadrat" },
+            new[] { "1", "https://www.mcena.ru/metalloprokat/krug" },
+            new[] { "1", "https://www.mcena.ru/metalloprokat/list" },
+            new[] { "2", "https://www.mcena.ru/metalloprokat/list" },
+            new[] { "3", "https://www.mcena.ru/metalloprokat/list" },
+            new[] { "4", "https://www.mcena.ru/metalloprokat/list" },
+            new[] { "5", "https://www.mcena.ru/metalloprokat/list" }
         };
     }
 
@@ -35,18 +35,19 @@ public class McenaParser
         }
     }
 
-    public void Pars(string url, int line, int id)
+    private void Pars(string url, int line, int id)
     {
-        ChromeOptions option = new ChromeOptions();
+        var option = new ChromeOptions();
         option.AddArgument("headless");
-        IWebDriver driver = new ChromeDriver(option);
+        var driver = new ChromeDriver(option);
         driver.Navigate().GoToUrl(url);
-        string q =
+
+        var v = driver.FindElement
+        (By.CssSelector(
             "body > main > div.main__content > article:nth-child(3) > div > div > div > div > table > tbody > tr:nth-child(" +
-            line.ToString() + ") > td:nth-child(2)";
-        var v = driver.FindElement(By.CssSelector(q));
-        string s = v.Text.Replace(" ", "");
-        decimal res = (decimal)(0.8 * int.Parse(s));
+            line + ") > td:nth-child(2)"));
+
+        var res = 0.8m * decimal.Parse(v.Text.Replace(" ", ""));
         sql.AddMcenaData(id, res, DateTime.Now);
     }
 }

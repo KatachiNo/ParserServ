@@ -9,7 +9,7 @@ namespace ParserServ;
 
 public class Moex
 {
-    private string address = "Host=79.133.181.109;Username=postgres;Password=hBYqzt}9S#n2@Pv;Database=postgres";
+    private readonly string address = "Host=79.133.181.109;Username=postgres;Password=hBYqzt}9S#n2@Pv;Database=postgres";
 
     public void AddStock(string secID, string board, string name, NetworkStream stream)
     {
@@ -30,7 +30,7 @@ public class Moex
             .ExecuteNonQuery();
         connection.Close();
 
-        Program.MsgSendAndWrite($"Stock was added succesful", stream);
+        Program.MsgSendAndWrite($"Stock was added succesfully", stream);
     }
 
     public void DeleteStock(string secID, NetworkStream stream)

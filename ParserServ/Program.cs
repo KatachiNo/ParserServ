@@ -5,7 +5,6 @@ using System.Text;
 
 namespace ParserServ
 {
-    //Сообщение будущему я: Протестировать аборт, добавить возможность нескольких сообщений из одного потока
     internal class Program
     {
         public static List<(string, Task, DateTime, DateTime, int)> Tasks = new();
@@ -52,14 +51,14 @@ namespace ParserServ
             }
             //Граница за которую лучше не заходить. Далее... безопасная зона. Выше -> опасная зона. НЕ ТРОГАТЬ.
         }
-        
+
         public static void MsgSendAndWrite(string msg, NetworkStream stream)
         {
             var d = Encoding.UTF8.GetBytes(msg);
             stream.Write(d, 0, d.Length);
             Console.WriteLine(msg);
         }
-        
+
         public static void RemoveTask(string name)
         {
             for (var i = 0; i < Tasks.Count; i++)
@@ -71,6 +70,5 @@ namespace ParserServ
                 }
             }
         }
-        
     }
 }

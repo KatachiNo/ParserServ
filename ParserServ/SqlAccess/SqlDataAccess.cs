@@ -13,7 +13,7 @@ namespace ParserServ.SqlAccess
         {
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                List<T> rows = connection.Query<T>(sqlStatement, parameters).ToList();
+                var rows = connection.Query<T>(sqlStatement, parameters).ToList();
                 return rows;
             }
         }

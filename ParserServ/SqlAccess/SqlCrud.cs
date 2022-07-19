@@ -15,8 +15,8 @@ namespace ParserServ.SqlAccess
 
         public void AddToEconomics(string name,string price)
         {
-            DateTime date = DateTime.Now;
-            string sql = " IF NOT EXISTS ( select Id From EconomicsTable Where ProductName=@name) begin insert into EconomicsTable values(@name) end";
+            var date = DateTime.Now;
+            var sql = " IF NOT EXISTS ( select Id From EconomicsTable Where ProductName=@name) begin insert into EconomicsTable values(@name) end";
             _dataAccess.SaveData(sql, new {name},_connectionString);
             sql = "insert into EconomicsParse values((select Id from EconomicsTable where ProductName=@name),@price,@date)";
             _dataAccess.SaveData(sql, new { name,price,date }, _connectionString);
@@ -24,19 +24,19 @@ namespace ParserServ.SqlAccess
 
         public void AddInTranslomParse(int AreaID, string Price, string DateTranslom, DateTime DateParse)
         {
-            string sql = "INSERT INTO TranslomParse (AreaID, Price, DateTranslom, DateParse) VALUES (@AreaID, @Price, @DateTranslom, @DateParse)";
+            var sql = "INSERT INTO TranslomParse (AreaID, Price, DateTranslom, DateParse) VALUES (@AreaID, @Price, @DateTranslom, @DateParse)";
             _dataAccess.SaveData(sql, new {AreaID, Price, DateTranslom, DateParse}, _connectionString);
         }
         public void AddInTranslom(string MetallType, string AreaType, string AreaName)
         {
-            string sql = "INSERT INTO Translom (MetallType, AreaType, AreaName) VALUES (@MetallType, @AreaType, @AreaName)";
+            var sql = "INSERT INTO Translom (MetallType, AreaType, AreaName) VALUES (@MetallType, @AreaType, @AreaName)";
             _dataAccess.SaveData(sql, new {MetallType, AreaType, AreaName}, _connectionString);
         }
         
         
         public void AddMcenaData(int id, decimal res, DateTime date)
         {
-            string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
+            var query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
             _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
         }
     }
