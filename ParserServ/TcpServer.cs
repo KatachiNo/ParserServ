@@ -95,7 +95,7 @@ public class TcpServer
                         return;
                     }
                 }
-                case "DeleteSocks":
+                case "DeleteStocks":
                 {
                     new Moex().DeleteStock(res[1], stream);
                     break;

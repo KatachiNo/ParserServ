@@ -3,11 +3,14 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Net.Sockets;
 using System.Xml.Linq;
+using Npgsql;
 
 namespace ParserServ;
 
 public class Moex
 {
+    private string address = "Host=79.133.181.109;Username=postgres;Password=hBYqzt}9S#n2@Pv;Database=postgres";
+
     public void AddStock(string secID, string board, string name, NetworkStream stream)
     {
         try
@@ -20,61 +23,51 @@ public class Moex
             return;
         }
 
-        var connection =
-            new SqlConnection(
-                @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345");
+        var connection = new NpgsqlConnection(address);
         connection.Open();
-        var command = new SqlCommand($@"INSERT INTO Moex (SecID,Board,Name) VALUES ('{secID}','{board}','{name}')",
+        new NpgsqlCommand($@"INSERT INTO moex (secid,board,name) VALUES ('{secID}','{board}','{name}')",
                 connection)
             .ExecuteNonQuery();
         connection.Close();
-
 
         Program.MsgSendAndWrite($"Stock was added succesful", stream);
     }
 
     public void DeleteStock(string secID, NetworkStream stream)
     {
-        using (var connectionReading =
-               new SqlConnection(
-                   @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+        using (var connectionReading = new NpgsqlConnection(address))
         {
-            using (var connectionWriting =
-                   new SqlConnection(
-                       @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+            using (var connectionWriting = new NpgsqlConnection(address))
             {
                 connectionReading.Open();
                 connectionWriting.Open();
-                var reader = new SqlCommand("SELECT * FROM Moex", connectionReading).ExecuteReader();
+                var reader = new NpgsqlCommand("SELECT * FROM moex", connectionReading).ExecuteReader();
                 while (reader.Read())
                 {
                     var value1 = reader.GetValue(1).ToString()?.Trim();
                     if (value1 == secID)
                     {
-                        new SqlCommand($@"Delete from Moex where SecID = '{secID}'", connectionWriting)
+                        new NpgsqlCommand($@"Delete from moex where secid = '{secID}'", connectionWriting)
                             .ExecuteNonQuery();
-                        Program.MsgSendAndWrite($"Stock was removed succesful", stream);
+                        Program.MsgSendAndWrite($"Stock was removed", stream);
                         break;
                     }
-                    Program.MsgSendAndWrite($"Stock was not removed. {secID} was not found in moex table", stream);
                 }
+
+                Program.MsgSendAndWrite($"Stock was not removed. {secID} was not found in moex table", stream);
             }
         }
     }
 
     public void Start(NetworkStream stream)
     {
-        using (var connectionReading =
-               new SqlConnection(
-                   @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+        using (var connectionReading = new NpgsqlConnection(address))
         {
-            using (var connectionWriting =
-                   new SqlConnection(
-                       @"Server=sql.bsite.net\MSSQL2016;Persist Security Info=True;User ID=metallplaceproject_SampleDB;Password=12345"))
+            using (var connectionWriting = new NpgsqlConnection(address))
             {
                 connectionReading.Open();
                 connectionWriting.Open();
-                var reader = new SqlCommand("SELECT * FROM Moex", connectionReading).ExecuteReader();
+                var reader = new NpgsqlCommand("SELECT * FROM moex", connectionReading).ExecuteReader();
 
                 while (reader.Read())
                 {
@@ -85,15 +78,15 @@ public class Moex
                         var a = ParseProcess(value1, value2);
 
 
-                        new SqlCommand(
-                                $@"INSERT INTO MoexDataAll (SecIDNum, ParsingDate, DataMOEX, LastPrice)
+                        new NpgsqlCommand(
+                                $@"INSERT INTO moexdataall (secidNum, parsingdate, datamoex, lastprice)
                             VALUES ({int.Parse(reader.GetValue(0).ToString().Trim())},'{a.Item2}','{a.Item3}',{a.Item4})",
                                 connectionWriting)
                             .ExecuteNonQuery();
                     }
                     catch
                     {
-                        var msg = $"{value1} {value2}/Ошибка. Мосбиржа не передала данные от акции ";
+                        var msg = $"{value1} {value2}/Ошибка. Мосбиржа не передала данные от акции";
                         Program.MsgSendAndWrite(msg, stream);
                         Console.WriteLine(msg);
                     }
