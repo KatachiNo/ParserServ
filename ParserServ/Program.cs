@@ -8,7 +8,7 @@ namespace ParserServ
     //Сообщение будущему я: Протестировать аборт, добавить возможность нескольких сообщений из одного потока
     internal class Program
     {
-        public static List<(string, Task, DateTime, DateTime)> Tasks = new();
+        public static List<(string, Task, DateTime, DateTime, int)> Tasks = new();
 
         public static readonly Dictionary<string, bool> TaskStop = new()
         {

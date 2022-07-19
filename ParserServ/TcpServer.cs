@@ -60,12 +60,6 @@ public class TcpServer
     {
         var r = new Req();
         var re = message.Split("|", StringSplitOptions.RemoveEmptyEntries);
-        // if (re.Length == 0)
-        // {
-        //     var msg = "I don't know what you want";
-        //     Program.MsgSendAndWrite(msg, stream);
-        //     return;
-        // }
 
         foreach (var variable in re)
         {
@@ -137,7 +131,7 @@ public class TcpServer
                         int.Parse(res[3]), stream);
                 });
                 tsk.Start();
-                Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[2])));
+                Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[2]), int.Parse(res[3])));
 
                 break;
             }
