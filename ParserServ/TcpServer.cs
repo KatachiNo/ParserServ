@@ -137,7 +137,7 @@ public class TcpServer
                         int.Parse(res[3]), stream);
                 });
                 tsk.Start();
-                Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[1])));
+                Program.Tasks.Add((res[0], tsk, DateTime.Parse(res[1]), DateTime.Parse(res[2])));
 
                 break;
             }
