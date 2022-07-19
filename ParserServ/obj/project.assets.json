@@ -61,6 +61,18 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Npgsql/6.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {}
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -189,6 +201,18 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Security.AccessControl/6.0.0": {
@@ -406,6 +430,29 @@
         "newtonsoft.json.12.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Npgsql/6.0.4": {
+      "sha512": "SJMlOmFHr32oOzVXeHmarGaBKkhi0wHVN/rzuu2tUSJ4Qx2AkHCpr9R/DhLWwDiklqgzFU++9wkFyGJxbx/zzg==",
+      "type": "package",
+      "path": "npgsql/6.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Npgsql.dll",
+        "lib/net5.0/Npgsql.xml",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/netcoreapp3.1/Npgsql.dll",
+        "lib/netcoreapp3.1/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.6.0.4.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -678,6 +725,31 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Security.AccessControl/6.0.0": {
       "sha512": "AUADIc0LIEQe7MzC+I0cl0rAT8RrTAKFHl53yHjEUzNVIaUlhFY11vc2ebiVJzVBuOzun6F7FBA+8KAbGTTedQ==",
       "type": "package",
@@ -852,6 +924,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Dapper >= 2.0.123",
+      "Npgsql >= 6.0.4",
       "Selenium.Support >= 4.3.0",
       "Selenium.WebDriver >= 4.3.0",
       "Selenium.WebDriver.ChromeDriver >= 103.0.5060.5300",
@@ -860,24 +933,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\koeno\\.nuget\\packages\\": {}
+    "C:\\Users\\prost\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\20.2.0.36\\ToolboxNuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj",
+      "projectUniqueName": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
       "projectName": "ParserServ",
-      "projectPath": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj",
-      "packagesPath": "C:\\Users\\koeno\\.nuget\\packages\\",
-      "outputPath": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\obj\\",
+      "projectPath": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
+      "packagesPath": "C:\\Users\\prost\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\20.2.0.36\\ToolboxNuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\koeno\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\prost\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -899,6 +983,10 @@
           "Dapper": {
             "target": "Package",
             "version": "[2.0.123, )"
+          },
+          "Npgsql": {
+            "target": "Package",
+            "version": "[6.0.4, )"
           },
           "Selenium.Support": {
             "target": "Package",
@@ -927,7 +1015,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -936,7 +1025,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400-preview.22301.10\\RuntimeIdentifierGraph.json"
       }
     }
   }
