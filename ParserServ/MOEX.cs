@@ -47,8 +47,17 @@ public class Moex
                     var value1 = reader.GetValue(1).ToString()?.Trim();
                     if (value1 == secID)
                     {
-                        new NpgsqlCommand($@"Delete from moex where secid = '{secID}'", connectionWriting)
-                            .ExecuteNonQuery();
+                        try
+                        {
+                            new NpgsqlCommand($@"Delete from moex where secid = '{secID}'", connectionWriting)
+                                .ExecuteNonQuery();
+                        }
+                        catch
+                        {
+                            Program.MsgSendAndWrite($"Stock was not removed. {secID} has connections with another DB", stream);
+                            break;
+                        }
+                        
                         Program.MsgSendAndWrite($"Stock was removed", stream);
                         break;
                     }
