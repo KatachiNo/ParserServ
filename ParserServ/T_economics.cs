@@ -10,21 +10,22 @@ using ParserServ.SqlAccess;
 
 namespace ParserServ
 {
-    internal class T_economics //CoalParser
+    internal class T_economics
     {
         private Dictionary<string, string> _comparedData = new();
 
-        public void LoadData()
+        private void LoadData()
         {
-            string pattern = @"\b(Нефть|Газ|Бензин|Топочный мазут|Серебро|Золото)\b";
-            ChromeOptions options = new ChromeOptions();
+            var pattern = @"\b(Нефть|Газ|Бензин|Топочный мазут|Серебро|Золото)\b";
+            var options = new ChromeOptions();
             options.AddArgument("headless");
-            WebDriver driver = new ChromeDriver(options);
+
+            var driver = new ChromeDriver(options);
             driver.Navigate().GoToUrl("https://ru.tradingeconomics.com/commodities");
             var row = driver.FindElements(By.ClassName("datatable-row"));
             var alternative = driver.FindElements(By.ClassName("datatable-row-alternating"));
-            var finalresult = row.Union(alternative).ToList();
-            foreach (var item in finalresult)
+
+            foreach (var item in row.Union(alternative).ToList())
             {
                 var name = item.FindElement(By.ClassName("datatable-item-first"));
                 if (Regex.IsMatch(name.Text, pattern, RegexOptions.IgnoreCase))
@@ -39,7 +40,7 @@ namespace ParserServ
         public void Start()
         {
             LoadData();
-            SqlCrud sqlCrud = new SqlCrud();
+            var sqlCrud = new SqlCrud();
             foreach (var item in _comparedData)
             {
                 sqlCrud.AddToEconomics(item.Key, item.Value);
