@@ -36,7 +36,7 @@ namespace ParserServ.SqlAccess
         
         public void AddMcenaData(int id, decimal res, DateTime date)
         {
-            string query = "INSERT INTO McenaPars (Price, ProductID, Date) VALUES (@res, @id, @date)";
+            string query = "INSERT INTO mcenaparse (Price, ProductID, Date) VALUES (@res, @id, @date)";
             _dataAccess.SaveData(query, new {res, id, date}, _connectionString);
         }
     }
