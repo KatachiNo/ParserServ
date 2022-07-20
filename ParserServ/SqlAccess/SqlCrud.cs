@@ -13,12 +13,10 @@ namespace ParserServ.SqlAccess
             _connectionString = ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString;
         }
 
-        public void AddToEconomics(string name,string price)
+        public void AddToEconomics(string name,decimal price)
         {
-            var date = DateTime.Now;
-            var sql = " insert  into EconomicsTable(productname) values(@name) ON CONFLICT do nothing";
-            _dataAccess.SaveData(sql, new {name},_connectionString);
-            sql = "insert into EconomicsParse values((select Id from EconomicsTable where ProductName=@name),@price,@date)";
+            var date = DateTime.Now;         
+            var sql = "insert into EconomicsParse(productid, price, parsingdate) values((select Id from EconomicsTable where ProductName=@name),@price,@date)";
             _dataAccess.SaveData(sql, new { name,price,date }, _connectionString);
         }
 

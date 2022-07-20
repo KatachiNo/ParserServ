@@ -32,7 +32,7 @@ namespace ParserServ
                 {
                     var splitedname = name.Text;
                     var value = item.FindElement(By.Id("p"));
-                    _comparedData.Add(splitedname, value.Text);
+                    _comparedData.Add(splitedname, value.Text.Replace(".",","));
                 }
             }
         }
@@ -43,7 +43,7 @@ namespace ParserServ
             var sqlCrud = new SqlCrud();
             foreach (var item in _comparedData)
             {
-                sqlCrud.AddToEconomics(item.Key, item.Value);
+                sqlCrud.AddToEconomics(item.Key, (decimal.Parse(item.Value)));
             }
         }
     }
