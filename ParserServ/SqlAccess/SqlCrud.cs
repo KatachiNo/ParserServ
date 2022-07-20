@@ -16,7 +16,7 @@ namespace ParserServ.SqlAccess
         public void AddToEconomics(string name,string price)
         {
             var date = DateTime.Now;
-            var sql = " IF NOT EXISTS ( select Id From EconomicsTable Where ProductName=@name) begin insert into EconomicsTable values(@name) end";
+            var sql = " insert  into EconomicsTable(productname) values(@name) ON CONFLICT do nothing";
             _dataAccess.SaveData(sql, new {name},_connectionString);
             sql = "insert into EconomicsParse values((select Id from EconomicsTable where ProductName=@name),@price,@date)";
             _dataAccess.SaveData(sql, new { name,price,date }, _connectionString);

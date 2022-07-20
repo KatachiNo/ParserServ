@@ -1,25 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj": {}
+    "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj": {}
   },
   "projects": {
-    "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj": {
+    "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj",
+        "projectUniqueName": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
         "projectName": "ParserServ",
-        "projectPath": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\ParserServ.csproj",
-        "packagesPath": "C:\\Users\\koeno\\.nuget\\packages\\",
-        "outputPath": "D:\\asMain\\CloudDrive\\OneDrive - НИТУ МИСиС\\Projects\\С# Jet Brains\\ParserServ\\ParserServ\\obj\\",
+        "projectPath": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\ParserServ.csproj",
+        "packagesPath": "C:\\Users\\prost\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prost\\source\\repos\\KatachiNo\\ParserServ\\ParserServ\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\20.2.0.36\\ToolboxNuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\koeno\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\prost\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,7 +82,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -82,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400-preview.22301.10\\RuntimeIdentifierGraph.json"
         }
       }
     }
