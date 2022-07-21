@@ -33,6 +33,7 @@ public class Req
                     }
                 }
 
+
                 return "there is no working thread";
             }
             case "status":
@@ -70,8 +71,13 @@ public class Req
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new Moex().Start(stream);
-                    Console.WriteLine("Sleeping. . .");
+                    Console.WriteLine($"{name} is sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
+                }
+
+                if (Program.TaskStop[name] == false)
+                {
+                    Program.RemoveTask(name);
                 }
 
                 break;
@@ -83,10 +89,14 @@ public class Req
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new McenaParser().Start();
-                    Console.WriteLine("Sleeping. . .");
+                    Console.WriteLine($"{name} is sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
+                if (Program.TaskStop[name] == false)
+                {
+                    Program.RemoveTask(name);
+                }
 
                 break;
 
@@ -97,10 +107,14 @@ public class Req
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new T_economics().Start();
-                    Console.WriteLine("Sleeping. . .");
+                    Console.WriteLine($"{name} is sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
                 }
 
+                if (Program.TaskStop[name] == false)
+                {
+                    Program.RemoveTask(name);
+                }
 
                 break;
 
@@ -111,8 +125,13 @@ public class Req
                 while (DateTime.Now < dateEnd && !Program.TaskStop[name])
                 {
                     new TranslomParse().Start();
-                    Console.WriteLine("Sleeping. . .");
+                    Console.WriteLine($"{name} is sleeping. . .");
                     Thread.Sleep(intervalMs); // 1 min = 60000 ms
+                }
+
+                if (Program.TaskStop[name] == false)
+                {
+                    Program.RemoveTask(name);
                 }
 
                 break;

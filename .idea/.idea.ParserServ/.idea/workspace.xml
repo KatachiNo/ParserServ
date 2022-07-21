@@ -4,16 +4,21 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="Исправление ошибки, удаления акции ,которую удалить нельзя из-за связи внешнего ключа">
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/MOEX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/MOEX.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/SqlAccess/SqlCrud.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/SqlAccess/SqlCrud.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/SqlAccess/SqlDataAccess.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/SqlAccess/SqlDataAccess.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/T_economics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/T_economics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/mcena.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/mcena.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +35,20 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7db79a8c1f7541f59ceeb5c06b4a2acbd580/bf/70de14d8/SqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7db79a8c1f7541f59ceeb5c06b4a2acbd580/cb/2ace77ca/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae1f29ab81b34e909584423a3fc6fff7a23898/78/1a15d86d/Thread.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d831f4c3197647b7b88a3eeff13bbdc75d7200/4a/7651332f/DesiredCapabilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d831f4c3197647b7b88a3eeff13bbdc75d7200/74/5dc2f2b2/DriverOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2d2b6050bcc963227b5743c6fc3f4295c9615ad69df6b54e53a3817fc3d793b/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a1ad32abaee44480b66c2c1fcee9628cca92a4cd272eced5781564201180/Number.Parsing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/902c7234ac8172b6a14385988189f4d260e1831f5f3f40c681be9de3dd842c40/Thread.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/asMain/CloudDrive/OneDrive - НИТУ МИСиС/Projects/С# Jet Brains/ParserServ/ParserServ/MOEX.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParserServ/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,7 +75,11 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.ParserServ">
+    <configuration name="Publish ParserServ to folder" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" target_folder="$PROJECT_DIR$/ParserServ/bin/Release/net6.0/publish" target_framework="net6.0" uuid_high="-2618298960212768669" uuid_low="-6334718482414523789" />
+      <method v="2" />
+    </configuration>
     <configuration name="ParserServ" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/ParserServ/bin/Debug/net6.0/ParserServ.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using ParserServ.SqlAccess;
 
 namespace ParserServ;
@@ -13,11 +14,12 @@ public class TranslomParse
         var prices = new List<string>();
         var data = new List<string>();
 
-        var opt = new ChromeOptions();
-        opt.AddArgument("headless");
-        var driver = new ChromeDriver(opt);
-        driver.Navigate().GoToUrl("https://www.translom.ru/graph/index.html#graph41");
+        var chromeOptions = new ChromeOptions();
+        chromeOptions.BrowserVersion = "103";
+        var driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"), chromeOptions);
 
+
+        driver.Navigate().GoToUrl("https://www.translom.ru/graph/index.html#graph41");
         var elementAl = driver.FindElement(By.XPath("/html/body/section/div/div[1]/ul/li[2]/div/div[1]"));
         elementAl.Click();
         var elementCu = driver.FindElement(By.XPath("/html/body/section/div/div[1]/ul/li[3]/div/div[1]"));
@@ -66,6 +68,7 @@ public class TranslomParse
             }
         }
 
+        driver.Quit();
         return translist;
     }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using ParserServ.SqlAccess;
 
 public class McenaParser
@@ -37,9 +38,15 @@ public class McenaParser
 
     private void Pars(string url, int line, int id)
     {
-        var option = new ChromeOptions();
-        option.AddArgument("headless");
-        var driver = new ChromeDriver(option);
+        // var option = new ChromeOptions();
+        // option.AddArgument("headless");
+        // var driver = new ChromeDriver(option);
+
+        var chromeOptions = new ChromeOptions();
+        chromeOptions.BrowserVersion = "103";
+        var driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"), chromeOptions);
+
+
         driver.Navigate().GoToUrl(url);
 
         var v = driver.FindElement
@@ -49,5 +56,7 @@ public class McenaParser
 
         var res = 0.8m * decimal.Parse(v.Text.Replace(" ", ""));
         sql.AddMcenaData(id, res, DateTime.Now);
+
+        driver.Quit();
     }
 }
