@@ -4,21 +4,10 @@
     <projectFile>ParserServ/ParserServ.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="">
+    <list default="true" id="63aed195-e63e-4fdc-8f66-72e0952fdea9" name="Changes" comment="End">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ParserServ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ParserServ/MOEX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/MOEX.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ParserServ/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/Req.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/Req.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/T_economics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/T_economics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/TcpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TcpServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/TranslomParse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/mcena.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/mcena.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/Debug/net6.0/ParserServ.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/ParserServ.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/ParserServ/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +29,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae1f29ab81b34e909584423a3fc6fff7a23898/78/1a15d86d/Thread.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d831f4c3197647b7b88a3eeff13bbdc75d7200/4a/7651332f/DesiredCapabilities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d831f4c3197647b7b88a3eeff13bbdc75d7200/74/5dc2f2b2/DriverOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d831f4c3197647b7b88a3eeff13bbdc75d7200/d8/b65a66a0/HttpCommandExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/198a6261cebc324728dcc4c178edc5f2894123f711722c80e8557cbfd27651/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2d2b6050bcc963227b5743c6fc3f4295c9615ad69df6b54e53a3817fc3d793b/SqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -47,8 +37,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/902c7234ac8172b6a14385988189f4d260e1831f5f3f40c681be9de3dd842c40/Thread.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b0dd2a4cc84ee37a4fe7c6c76c157e5dee266f3a47fff24df5c8bc9b155e11dd/NetworkStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParserServ/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -120,13 +108,6 @@
       <workItem from="1658177789146" duration="7384000" />
       <workItem from="1658227028755" duration="7190000" />
       <workItem from="1658268469985" duration="3889000" />
-    </task>
-    <task id="LOCAL-00001" summary="/">
-      <created>1657429575660</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1657429575660</updated>
     </task>
     <task id="LOCAL-00002" summary="cache">
       <created>1657429606650</created>
@@ -464,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658271132698</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="End">
+      <created>1658482278955</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1658482278955</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +485,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Добавление функционала для аборта" />
     <MESSAGE value="Ну в общем то готово" />
     <MESSAGE value="добавил возможность добавлять акции.&#10;затем при TakeInfo дается информация о датах" />
     <MESSAGE value="Добавил ответ при запросе на старт" />
@@ -522,20 +509,21 @@
     <MESSAGE value="fix" />
     <MESSAGE value="Правки, подключается теперь к PostgresSQL" />
     <MESSAGE value="Исправление ошибки, удаления акции ,которую удалить нельзя из-за связи внешнего ключа" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправление ошибки, удаления акции ,которую удалить нельзя из-за связи внешнего ключа" />
+    <MESSAGE value="End" />
+    <option name="LAST_COMMIT_MESSAGE" value="End" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ParserServ/MOEX.cs</url>
-          <line>14</line>
+          <line>11</line>
           <properties documentPath="D:\asMain\CloudDrive\OneDrive - НИТУ МИСиС\Projects\С# Jet Brains\ParserServ\ParserServ\MOEX.cs" initialLine="14" containingFunctionPresentation="method 'AddStock'">
             <startOffsets>
-              <option value="398" />
+              <option value="322" />
             </startOffsets>
             <endOffsets>
-              <option value="399" />
+              <option value="323" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
@@ -543,7 +531,7 @@
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/ParserServ/MOEX.cs" line="27">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/ParserServ/MOEX.cs" line="24">
         <watch expression="DefaultInterpolatedStringHandler.ToStringAndClear()" language="C#" />
       </inline-watch>
     </watches-manager>

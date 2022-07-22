@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Net.Sockets;
 using System.Text;
 
-
 namespace ParserServ
 {
     internal class Program
@@ -22,7 +21,7 @@ namespace ParserServ
         {
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("ru-RU");
             Console.WriteLine(DateTime.Now);
-            //Граница за которую лучше не заходить. Опасная зона
+            
             new Thread(StartServer).Start();
 
             void StartServer()
@@ -52,7 +51,7 @@ namespace ParserServ
                         listener.Stop();
                 }
             }
-            //Граница за которую лучше не заходить. Далее... безопасная зона. Выше -> опасная зона. НЕ ТРОГАТЬ.
+            
         }
 
         public static void MsgSendAndWrite(string msg, NetworkStream stream)

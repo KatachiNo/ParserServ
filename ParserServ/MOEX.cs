@@ -1,7 +1,4 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using System.Globalization;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Xml.Linq;
 using Npgsql;
 
