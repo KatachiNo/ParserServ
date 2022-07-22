@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Net.Sockets;
 using System.Text;
 
@@ -19,12 +20,14 @@ namespace ParserServ
 
         static void Main()
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("ru-RU");
+            Console.WriteLine(DateTime.Now);
             //Граница за которую лучше не заходить. Опасная зона
             new Thread(StartServer).Start();
 
             void StartServer()
             {
-                var port = 8080;
+                var port = 8081;
                 var listener = new TcpListener(port);
                 try
                 {
